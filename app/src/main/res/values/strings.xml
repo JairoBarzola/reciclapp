@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Reciclapp</string>
+    <string name="perm_camera">Se necesitan permisos para la cámara</string>
+    
+    //drawer
+    <string name="make_a_delivery">Hacer una entrega</string>
+    <string name="collection_points">Puntos de acopio</string>
+    <string name="my_delivery">Mis entregas</string>
+    <string name="my_benefits">Mis beneficios</string>
+    <string name="my_account">Mi perfil</string>
+
+    //login
+    <string name="user">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="forgot_my_password">Olvidé mi contraseña</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="register">Registrar</string>
+
+    //drawer strings
+    <string name="drawer_open">Se abrió el menú</string>
+    <string name="drawer_close">Se cerró el menú</string>
+
+    //received benefit strings
+    <string name="received_benefit_description_1">1. Junta tus desechos separado por tipo: plástico, vidrio y papel.</string>
+    <string name="received_benefit_description_2">2. Llévalos a uno de nuestros puntos de acopio.</string>
+    <string name="received_benefit_description_3">3. Escanea el código QR que te mostrarán.</string>
+
+</resources>
