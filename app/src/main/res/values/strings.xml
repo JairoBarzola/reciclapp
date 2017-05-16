@@ -15,6 +15,15 @@
     <string name="forgot_my_password">Olvidé mi contraseña</string>
     <string name="login">Iniciar Sesión</string>
     <string name="register">Registrar</string>
+    
+    //register
+    <string name="first_name">Nombre</string>
+    <string name="last_name">Apellido</string>
+    <string name="dni">DNI</string>
+    <string name="birthdate">Fecha de nacimiento</string>
+    <string name="email">Correo electrónico</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="repeat_password">Repetir contraseña</string>
 
     //drawer strings
     <string name="drawer_open">Se abrió el menú</string>

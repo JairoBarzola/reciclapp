@@ -14,6 +14,7 @@ import com.cerezaconsulting.reciclappcalidad.core.BaseFragment;
 import com.cerezaconsulting.reciclappcalidad.data.entities.UserEntity;
 import com.cerezaconsulting.reciclappcalidad.data.repositories.local.SessionManager;
 import com.cerezaconsulting.reciclappcalidad.presentation.activities.MainActivity;
+import com.cerezaconsulting.reciclappcalidad.presentation.activities.RegisterActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -74,6 +75,7 @@ public class LoginFragment extends BaseFragment {
                 next(getActivity(),null, MainActivity.class,true);
                 break;
             case R.id.btn_register:
+                next(getActivity(),null, RegisterActivity.class,false);
                 break;
         }
     }

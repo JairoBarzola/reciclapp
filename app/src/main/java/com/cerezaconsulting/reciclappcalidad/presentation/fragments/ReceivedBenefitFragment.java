@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.core.BaseFragment;
@@ -112,7 +113,7 @@ public class ReceivedBenefitFragment extends BaseFragment implements ZXingScanne
 
     @Override
     public void handleResult(Result result) {
-
+        Toast.makeText(getContext(), result.getText(), Toast.LENGTH_SHORT).show();
     }
 
 }
