@@ -24,8 +24,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="30dp"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginLeft="40dp"
                     android:orientation="vertical">
                     <EditText
                         android:layout_width="match_parent"
@@ -49,32 +49,33 @@
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_gravity="right"/>
                 </LinearLayout>
-
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_gravity="bottom"
+                    android:orientation="vertical">
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="@string/login"
+                        android:id="@+id/btn_login"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/button_white"/>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:text="@string/register"
+                        android:id="@+id/btn_register"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/button_green"/>
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_gravity="bottom"
-            android:orientation="vertical">
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"
-                android:text="@string/login"
-                android:id="@+id/btn_login"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/button_white"/>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="@string/register"
-                android:id="@+id/btn_register"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/button_green"/>
-        </LinearLayout>
+
     </FrameLayout>
 </LinearLayout>

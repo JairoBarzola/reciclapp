@@ -26,6 +26,12 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".presentation.activities.RegisterActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".presentation.activities.ReceivedBenefitQrActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".presentation.activities.BenefitsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".presentation.activities.MyDeliveriesActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

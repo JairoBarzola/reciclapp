@@ -12,7 +12,9 @@ import android.view.MenuItem;
 import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.core.BaseActivity;
 import com.cerezaconsulting.reciclappcalidad.data.repositories.local.SessionManager;
+import com.cerezaconsulting.reciclappcalidad.presentation.fragments.MainFragment;
 import com.cerezaconsulting.reciclappcalidad.presentation.fragments.ReceivedBenefitFragment;
+import com.cerezaconsulting.reciclappcalidad.presentation.fragments.ReceivedBenefitQRFragment;
 import com.cerezaconsulting.reciclappcalidad.presentation.utils.ActivityUtils;
 
 import butterknife.BindView;
@@ -55,9 +57,9 @@ public class MainActivity extends BaseActivity {
         drawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
-        ReceivedBenefitFragment fragment = (ReceivedBenefitFragment) getSupportFragmentManager().findFragmentById(R.id.body);
+        MainFragment fragment = (MainFragment) getSupportFragmentManager().findFragmentById(R.id.body);
         if(fragment==null){
-            fragment = ReceivedBenefitFragment.newInstance();
+            fragment = MainFragment.newInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),fragment,R.id.body);
         }
 
@@ -79,14 +81,17 @@ public class MainActivity extends BaseActivity {
         // position
 
         switch (menuItem.getItemId()) {
+            case R.id.action_recycle:
+                next(this,null,ReceivedBenefitQrActivity.class,false);
+                break;
             case R.id.action_my_orders:
 
                 break;
             case R.id.action_delivery:
-
+                next(this,null,MyDeliveriesActivity.class,false);
                 break;
             case R.id.action_benefits:
-
+                next(this,null,BenefitsActivity.class,false);
                 break;
             case R.id.action_account:
                 sessionManager.closeSession();
@@ -100,7 +105,7 @@ public class MainActivity extends BaseActivity {
         // Highlight the selected item, update the title, and close the drawer
         //menuItem.setChecked(true);
         //setTitle(menuItem.getTitle());
-        drawerLayout.closeDrawers();
+        //drawerLayout.closeDrawers();
         //this.finish();
     }
 }
