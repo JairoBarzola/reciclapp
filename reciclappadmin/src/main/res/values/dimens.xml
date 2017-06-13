@@ -12,6 +12,4 @@
     <dimen name="normal_text">14sp</dimen>
     <dimen name="tiny_text">12sp</dimen>
     <dimen name="smallest_text">10sp</dimen>
-
-
 </resources>

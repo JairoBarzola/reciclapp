@@ -49,5 +49,13 @@
     //benefits
     <string name="no_benefits">No hay beneficios</string>
     <string name="get_benefits">Canjear Beneficios</string>
+
+    //delivery description
+    <string name="delivery_detail">Detalle de entrega</string>
+    <string name="delivery_description">Datos de entrega</string>
+    <string name="date">Fecha</string>
+    <string name="delivery_supervisor">Supervisor de entrega</string>
+    <string name="collection_point">Punto de acopio</string>
+    <string name="total_points">Total acumulado</string>
     
 </resources>

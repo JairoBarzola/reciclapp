@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">ReciclappAdmin</string>
+    <string name="perm_camera">Se necesitan permisos para la cámara</string>
+
+    //drawer
+    <string name="make_a_delivery">Hacer una entrega</string>
+    <string name="collection_points">Puntos de acopio</string>
+    <string name="my_delivery">Mis entregas</string>
+    <string name="my_benefits">Mis beneficios</string>
+    <string name="my_account">Mi perfil</string>
+
+    //login
+    <string name="user">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="forgot_my_password">Olvidé mi contraseña</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="register">Registrar</string>
+
+    //register
+    <string name="first_name">Nombre</string>
+    <string name="last_name">Apellido</string>
+    <string name="dni">DNI</string>
+    <string name="birthdate">Fecha de nacimiento</string>
+    <string name="email">Correo electrónico</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="repeat_password">Repetir contraseña</string>
+
+    //drawer strings
+    <string name="drawer_open">Se abrió el menú</string>
+    <string name="drawer_close">Se cerró el menú</string>
+
+    //main strings
+    <string name="hello_user">¡Hola Usuario,\nbuen día!</string>
+    <string name="register_delivery">Registrar entrega</string>
+    <string name="manage_deliveries">Gestionar entregas</string>
+
+    //register delivery
+    <string name="paper_quantity">Cantidad de papel (kg)</string>
+    <string name="glass_quantity">Cantidad de vidrio (kg)</string>
+    <string name="plastic_quantity">Cantidad de plástico (kg)</string>
+    <string name="read_qr_code">Leer Código QR</string>
+    <string name="make_delivery">Realizar entrega</string>
+
+</resources>
