@@ -12,6 +12,8 @@ import android.widget.FrameLayout;
 import com.cerezaconsulting.reciclappadmin.R;
 import com.cerezaconsulting.reciclappadmin.core.BaseActivity;
 import com.cerezaconsulting.reciclappadmin.data.repositories.local.SessionManager;
+import com.cerezaconsulting.reciclappadmin.presentation.fragments.MainFragment;
+import com.cerezaconsulting.reciclappadmin.presentation.utils.ActivityUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -55,7 +57,11 @@ public class MainActivity extends BaseActivity {
         drawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
-
+        MainFragment fragment = (MainFragment) getSupportFragmentManager().findFragmentById(R.id.body);
+        if(fragment==null){
+            fragment=MainFragment.newInstance();
+            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),fragment,R.id.body);
+        }
     }
 
     private void setupDrawerContent(NavigationView navigationView) {

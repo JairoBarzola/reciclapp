@@ -1,13 +1,13 @@
-package com.cerezaconsulting.reciclappadmin.presentation.activities;
+package com.cerezaconsulting.reciclappcalidad.presentation.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 
-import com.cerezaconsulting.reciclappadmin.R;
-import com.cerezaconsulting.reciclappadmin.core.BaseActivity;
-import com.cerezaconsulting.reciclappadmin.presentation.fragments.RegisterDeliveryFragment;
-import com.cerezaconsulting.reciclappadmin.presentation.utils.ActivityUtils;
+import com.cerezaconsulting.reciclappcalidad.R;
+import com.cerezaconsulting.reciclappcalidad.core.BaseActivity;
+import com.cerezaconsulting.reciclappcalidad.presentation.fragments.DeliveryPointsFragment;
+import com.cerezaconsulting.reciclappcalidad.presentation.utils.ActivityUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
  * Created by miguel on 13/06/17.
  */
 
-public class RegisterDeliveryActivity extends BaseActivity {
+public class DeliveryPointsActivity extends BaseActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
@@ -27,11 +27,10 @@ public class RegisterDeliveryActivity extends BaseActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
 
-        RegisterDeliveryFragment fragment = (RegisterDeliveryFragment) getSupportFragmentManager().findFragmentById(R.id.body);
+        DeliveryPointsFragment fragment = (DeliveryPointsFragment) getSupportFragmentManager().findFragmentById(R.id.body);
         if(fragment==null){
-            fragment = RegisterDeliveryFragment.newInstance();
+            fragment = DeliveryPointsFragment.newInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),fragment,R.id.body);
         }
     }
-
 }

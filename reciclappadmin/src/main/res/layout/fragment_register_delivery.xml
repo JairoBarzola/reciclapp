@@ -69,6 +69,7 @@
         android:layout_width="match_parent"
         android:background="@drawable/button_green"
         android:text="@string/make_delivery"
+        android:id="@+id/btn_make_delivery"
         android:textColor="@color/white"
         android:layout_height="wrap_content" />
 </LinearLayout>

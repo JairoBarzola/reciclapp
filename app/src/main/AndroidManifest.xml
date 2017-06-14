@@ -2,7 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cerezaconsulting.reciclappcalidad">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission-sdk-23 android:name="android.permission.CAMERA"/>
 
     <application
@@ -32,6 +38,15 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".presentation.activities.MyDeliveriesActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".presentation.activities.DeliveryPointsActivity"
+            android:screenOrientation="portrait"/>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_map_key"/>
     </application>
 
 </manifest>

@@ -62,4 +62,5 @@ dependencies {
     compile coreProject.retrofitGson
     compile helpLibraries.qrScanner
     compile helpLibraries.permissions
+    compile googleService.maps
 }

@@ -9,6 +9,8 @@ import android.widget.LinearLayout;
 
 import com.cerezaconsulting.reciclappadmin.R;
 import com.cerezaconsulting.reciclappadmin.core.BaseFragment;
+import com.cerezaconsulting.reciclappadmin.presentation.activities.AccountActivity;
+import com.cerezaconsulting.reciclappadmin.presentation.activities.RegisterDeliveryActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,10 +53,12 @@ public class MainFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_register_delivery:
+                next(getActivity(),null, RegisterDeliveryActivity.class,false);
                 break;
             case R.id.btn_manage_deliveries:
                 break;
             case R.id.btn_my_account:
+                next(getActivity(),null, AccountActivity.class,false);
                 break;
         }
     }

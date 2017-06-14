@@ -57,5 +57,10 @@
     <string name="delivery_supervisor">Supervisor de entrega</string>
     <string name="collection_point">Punto de acopio</string>
     <string name="total_points">Total acumulado</string>
+
+
+
+    //google map keys
+    <string name="google_map_key">AIzaSyB1D51Wa_7U2zCXH4VsfMZiXfhuP8LX7uM</string>
     
 </resources>

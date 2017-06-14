@@ -41,4 +41,8 @@
     <string name="read_qr_code">Leer Código QR</string>
     <string name="make_delivery">Realizar entrega</string>
 
+    //account
+    <string name="document_number">Número de DNI</string>
+    <string name="birth_date">Fecha de nacimiento</string>
+
 </resources>

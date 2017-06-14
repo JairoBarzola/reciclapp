@@ -85,7 +85,7 @@ public class MainActivity extends BaseActivity {
                 next(this,null,ReceivedBenefitQrActivity.class,false);
                 break;
             case R.id.action_my_orders:
-
+                next(this,null,DeliveryPointsActivity.class,false);
                 break;
             case R.id.action_delivery:
                 next(this,null,MyDeliveriesActivity.class,false);

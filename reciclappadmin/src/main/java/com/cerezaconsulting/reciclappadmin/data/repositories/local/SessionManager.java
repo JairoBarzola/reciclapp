@@ -3,7 +3,8 @@ package com.cerezaconsulting.reciclappadmin.data.repositories.local;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.cerezaconsulting.reciclappcalidad.data.entities.UserEntity;
+
+import com.cerezaconsulting.reciclappadmin.data.entities.UserEntity;
 import com.google.gson.Gson;
 
 import org.json.JSONException;

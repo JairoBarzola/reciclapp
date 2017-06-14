@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.cerezaconsulting.reciclappadmin.R;
 import com.cerezaconsulting.reciclappadmin.core.BaseActivity;
-import com.cerezaconsulting.reciclappadmin.presentation.fragments.RegisterDeliveryFragment;
+import com.cerezaconsulting.reciclappadmin.presentation.fragments.ReceivedBenefitFragment;
 import com.cerezaconsulting.reciclappadmin.presentation.utils.ActivityUtils;
 
 import butterknife.BindView;
@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
  * Created by miguel on 13/06/17.
  */
 
-public class RegisterDeliveryActivity extends BaseActivity {
+public class ReceivedBenefitActivity extends BaseActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
@@ -25,13 +25,11 @@ public class RegisterDeliveryActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_back);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
 
-        RegisterDeliveryFragment fragment = (RegisterDeliveryFragment) getSupportFragmentManager().findFragmentById(R.id.body);
+        ReceivedBenefitFragment fragment = (ReceivedBenefitFragment) getSupportFragmentManager().findFragmentById(R.id.body);
         if(fragment==null){
-            fragment = RegisterDeliveryFragment.newInstance();
+            fragment = ReceivedBenefitFragment.newInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),fragment,R.id.body);
         }
     }
-
 }

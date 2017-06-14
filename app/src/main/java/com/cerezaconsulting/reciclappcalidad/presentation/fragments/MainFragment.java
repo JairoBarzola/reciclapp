@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.core.BaseFragment;
 import com.cerezaconsulting.reciclappcalidad.presentation.activities.BenefitsActivity;
+import com.cerezaconsulting.reciclappcalidad.presentation.activities.DeliveryPointsActivity;
 import com.cerezaconsulting.reciclappcalidad.presentation.activities.MyDeliveriesActivity;
 import com.cerezaconsulting.reciclappcalidad.presentation.activities.ReceivedBenefitQrActivity;
 
@@ -64,6 +65,7 @@ public class MainFragment extends BaseFragment {
                 next(getActivity(),null,MyDeliveriesActivity.class,false);
                 break;
             case R.id.btn_find_us:
+                next(getActivity(),null, DeliveryPointsActivity.class,false);
                 break;
             case R.id.btn_benefits:
                 next(getActivity(),null,BenefitsActivity.class,false);
