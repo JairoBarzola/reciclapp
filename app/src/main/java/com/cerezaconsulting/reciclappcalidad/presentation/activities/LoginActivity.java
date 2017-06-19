@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.core.BaseActivity;
 import com.cerezaconsulting.reciclappcalidad.presentation.fragments.LoginFragment;
+import com.cerezaconsulting.reciclappcalidad.presentation.presenters.LoginPresenter;
 import com.cerezaconsulting.reciclappcalidad.presentation.utils.ActivityUtils;
 
 /**
@@ -23,6 +24,7 @@ public class LoginActivity extends BaseActivity {
             loginFragment = LoginFragment.newInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),loginFragment,R.id.body);
         }
+        new LoginPresenter(loginFragment,getApplicationContext());
     }
 
 }

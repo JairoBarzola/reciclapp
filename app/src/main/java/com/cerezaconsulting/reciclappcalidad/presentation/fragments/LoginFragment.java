@@ -10,11 +10,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.cerezaconsulting.reciclappcalidad.R;
+import com.cerezaconsulting.reciclappcalidad.core.BaseActivity;
 import com.cerezaconsulting.reciclappcalidad.core.BaseFragment;
 import com.cerezaconsulting.reciclappcalidad.data.entities.UserEntity;
 import com.cerezaconsulting.reciclappcalidad.data.repositories.local.SessionManager;
+import com.cerezaconsulting.reciclappcalidad.presentation.activities.LoadActivity;
 import com.cerezaconsulting.reciclappcalidad.presentation.activities.MainActivity;
 import com.cerezaconsulting.reciclappcalidad.presentation.activities.RegisterActivity;
+import com.cerezaconsulting.reciclappcalidad.presentation.contracts.LoginContract;
+import com.cerezaconsulting.reciclappcalidad.presentation.utils.ProgressDialogCustom;
+import com.mobsandgeeks.saripaar.ValidationError;
+import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.Email;
+import com.mobsandgeeks.saripaar.annotation.NotEmpty;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,10 +35,12 @@ import butterknife.Unbinder;
  * Created by miguel on 16/05/17.
  */
 
-public class LoginFragment extends BaseFragment {
+public class LoginFragment extends BaseFragment implements LoginContract.View,Validator.ValidationListener{
 
+    @Email(message = "Email no válido")
     @BindView(R.id.et_user)
     EditText etUser;
+    @NotEmpty(message = "Este campo no puede ser vacío")
     @BindView(R.id.et_password)
     EditText etPassword;
     @BindView(R.id.tv_forgot_password)
@@ -39,7 +51,10 @@ public class LoginFragment extends BaseFragment {
     Button btnRegister;
     Unbinder unbinder;
 
-    private SessionManager sessionManager;
+    private LoginContract.Presenter presenter;
+    private ProgressDialogCustom mProgressDialogCustom;
+    private Validator validator;
+
 
     public static LoginFragment newInstance() {
         return new LoginFragment();
@@ -56,7 +71,9 @@ public class LoginFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        sessionManager = new SessionManager(getContext());
+        mProgressDialogCustom = new ProgressDialogCustom(getContext(),"Iniciando Sesión...");
+        validator = new Validator(this);
+        validator.setValidationListener(this);
     }
 
     @Override
@@ -71,12 +88,69 @@ public class LoginFragment extends BaseFragment {
             case R.id.tv_forgot_password:
                 break;
             case R.id.btn_login:
-                sessionManager.openSession("",new UserEntity());
-                next(getActivity(),null, MainActivity.class,true);
+                validator.validate();
                 break;
             case R.id.btn_register:
                 next(getActivity(),null, RegisterActivity.class,false);
                 break;
+        }
+    }
+
+    @Override
+    public void loginSuccessfully() {
+        next(getActivity(),null, LoadActivity.class,true);
+    }
+
+    @Override
+    public void setLoadingIndicator(boolean active) {
+        if(mProgressDialogCustom!=null){
+            if(active){
+                mProgressDialogCustom.show();
+            }
+            else{
+                mProgressDialogCustom.dismiss();
+            }
+        }
+    }
+
+    @Override
+    public void setMessageError(String error) {
+        ((BaseActivity)getActivity()).showMessageError(error);
+    }
+
+    @Override
+    public void setDialogMessage(String message) {
+        ((BaseActivity)getActivity()).showMessage(message);
+    }
+
+    @Override
+    public boolean isActive() {
+        return isAdded();
+    }
+
+    @Override
+    public void setPresenter(LoginContract.Presenter presenter) {
+        this.presenter = presenter;
+    }
+
+    @Override
+    public void onValidationSucceeded() {
+        presenter.login(etUser.getText().toString(),etPassword.getText().toString());
+    }
+
+    @Override
+    public void onValidationFailed(List<ValidationError> errors) {
+        for (ValidationError error : errors) {
+            View view = error.getView();
+            String message = error.getCollatedErrorMessage(getContext());
+            // Display error messages ;)
+            if (view instanceof EditText) {
+                ((EditText) view).setError(message);
+            } else if (view instanceof TextView) {
+                ((TextView) view).setError(message);
+            } else {
+                setMessageError(message);
+            }
         }
     }
 }

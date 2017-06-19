@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.core.BaseActivity;
 import com.cerezaconsulting.reciclappcalidad.presentation.fragments.RegisterFragment;
+import com.cerezaconsulting.reciclappcalidad.presentation.presenters.RegisterPresenter;
 import com.cerezaconsulting.reciclappcalidad.presentation.utils.ActivityUtils;
 
 import butterknife.BindView;
@@ -37,7 +38,7 @@ public class RegisterActivity extends BaseActivity {
             fragment = RegisterFragment.newInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),fragment,R.id.body);
         }
-
+        new RegisterPresenter(fragment,getApplicationContext());
     }
 
     @Override

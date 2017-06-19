@@ -28,10 +28,10 @@ android {
     }
     productFlavors {
         prod {
-            buildConfigField 'String', 'BASE', '"http://altoke.cerezaconsulting.com/api/"'
+            buildConfigField 'String', 'BASE', '"http://67.205.191.54/api/v1/"'
         }
         mock {
-            buildConfigField 'String', 'BASE', '"http://altoke.cerezaconsulting.com/api/"'
+            buildConfigField 'String', 'BASE', '"http://67.205.191.54/api/v1/"'
             applicationIdSuffix = ".test"
         }
     }
@@ -55,12 +55,17 @@ dependencies {
     compile supportDesignLibraries.supportv4
     compile supportDesignLibraries.supportv13
     compile supportDesignLibraries.cardview
+
     compile coreProject.butterKnife
     annotationProcessor coreProject.butterknifeProcesor
-    compile helpLibraries.calligraphy
     compile coreProject.gson
     compile coreProject.retrofitGson
+    compile coreProject.interceptor
+
     compile helpLibraries.qrScanner
     compile helpLibraries.permissions
+    compile helpLibraries.calligraphy
+    compile helpLibraries.saaripar
+
     compile googleService.maps
 }

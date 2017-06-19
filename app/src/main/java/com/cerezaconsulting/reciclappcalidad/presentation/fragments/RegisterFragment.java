@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.core.BaseFragment;
+import com.cerezaconsulting.reciclappcalidad.presentation.contracts.RegisterContract;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,7 +21,7 @@ import butterknife.Unbinder;
  * Created by miguel on 16/05/17.
  */
 
-public class RegisterFragment extends BaseFragment {
+public class RegisterFragment extends BaseFragment implements RegisterContract.View{
 
     @BindView(R.id.et_first_name)
     EditText etFirstName;
@@ -62,5 +63,35 @@ public class RegisterFragment extends BaseFragment {
 
     @OnClick(R.id.btn_register)
     public void onViewClicked() {
+    }
+
+    @Override
+    public void registerSuccessfully() {
+
+    }
+
+    @Override
+    public void setLoadingIndicator(boolean active) {
+
+    }
+
+    @Override
+    public void setMessageError(String error) {
+
+    }
+
+    @Override
+    public void setDialogMessage(String message) {
+
+    }
+
+    @Override
+    public boolean isActive() {
+        return isAdded();
+    }
+
+    @Override
+    public void setPresenter(RegisterContract.Presenter presenter) {
+
     }
 }
