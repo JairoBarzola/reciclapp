@@ -32,6 +32,8 @@ public class UserEntity implements Serializable{
     @SerializedName("nacimiento")
     private String birth_date;
 
+    private String password;
+
     public String getUser_id() {
         return user_id;
     }
@@ -126,5 +128,21 @@ public class UserEntity implements Serializable{
 
     public void setBirth_date(String birth_date) {
         this.birth_date = birth_date;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getFullName(){
+        String fullName = "";
+        if(first_name!=null && last_name!=null){
+            fullName=first_name+" "+last_name;
+        }
+        return fullName;
     }
 }

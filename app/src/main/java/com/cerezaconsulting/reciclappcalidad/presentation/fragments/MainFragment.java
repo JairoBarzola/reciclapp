@@ -6,9 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.core.BaseFragment;
+import com.cerezaconsulting.reciclappcalidad.data.entities.UserEntity;
+import com.cerezaconsulting.reciclappcalidad.data.repositories.local.SessionManager;
 import com.cerezaconsulting.reciclappcalidad.presentation.activities.BenefitsActivity;
 import com.cerezaconsulting.reciclappcalidad.presentation.activities.DeliveryPointsActivity;
 import com.cerezaconsulting.reciclappcalidad.presentation.activities.MyDeliveriesActivity;
@@ -36,6 +39,10 @@ public class MainFragment extends BaseFragment {
     @BindView(R.id.btn_account)
     LinearLayout btnAccount;
     Unbinder unbinder;
+    @BindView(R.id.tv_welcome_user)
+    TextView tvWelcomeUser;
+
+    private SessionManager sessionManager;
 
     public static MainFragment newInstance() {
         return new MainFragment();
@@ -50,6 +57,14 @@ public class MainFragment extends BaseFragment {
     }
 
     @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        sessionManager = new SessionManager(getContext());
+        UserEntity userEntity = sessionManager.getUserEntity();
+        tvWelcomeUser.setText(getString(R.string.hello)+" "+userEntity.getFullName()+getString(R.string.good_day));
+    }
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
@@ -59,16 +74,16 @@ public class MainFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_recycle:
-                next(getActivity(),null,ReceivedBenefitQrActivity.class,false);
+                next(getActivity(), null, ReceivedBenefitQrActivity.class, false);
                 break;
             case R.id.btn_my_deliveries:
-                next(getActivity(),null,MyDeliveriesActivity.class,false);
+                next(getActivity(), null, MyDeliveriesActivity.class, false);
                 break;
             case R.id.btn_find_us:
-                next(getActivity(),null, DeliveryPointsActivity.class,false);
+                next(getActivity(), null, DeliveryPointsActivity.class, false);
                 break;
             case R.id.btn_benefits:
-                next(getActivity(),null,BenefitsActivity.class,false);
+                next(getActivity(), null, BenefitsActivity.class, false);
                 break;
             case R.id.btn_account:
                 break;

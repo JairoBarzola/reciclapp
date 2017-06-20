@@ -18,9 +18,10 @@ import retrofit2.http.POST;
 public interface UserRequest {
     @FormUrlEncoded
     @POST(ApiConstants.REGISTER)
-    Call<AccessTokenEntity> registerUser(@Field("nombre") String first_name,@Field("apellido") String last_name,
+    Call<Void> registerUser(@Field("nombre") String first_name,@Field("apellido") String last_name,
                                   @Field("email") String email, @Field("direccion") String direction,
-                                  @Field("distrito") String district, @Field("nacimiento") String birth_date);
+                                  @Field("distrito") String district, @Field("nacimiento") String birth_date,
+                            @Field("password") String password);
 
     @FormUrlEncoded
     @POST(ApiConstants.LOGIN)

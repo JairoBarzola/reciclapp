@@ -66,6 +66,8 @@ dependencies {
     compile helpLibraries.permissions
     compile helpLibraries.calligraphy
     compile helpLibraries.saaripar
+    compile helpLibraries.dateTimePicker
 
     compile googleService.maps
+    compile googleService.places
 }

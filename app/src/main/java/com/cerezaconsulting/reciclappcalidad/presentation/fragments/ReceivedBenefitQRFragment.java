@@ -10,6 +10,8 @@ import android.widget.ImageView;
 
 import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.core.BaseFragment;
+import com.cerezaconsulting.reciclappcalidad.data.entities.UserEntity;
+import com.cerezaconsulting.reciclappcalidad.data.repositories.local.SessionManager;
 import com.cerezaconsulting.reciclappcalidad.presentation.utils.BarcodeUtils;
 
 import butterknife.BindView;
@@ -26,6 +28,8 @@ public class ReceivedBenefitQRFragment extends BaseFragment {
     ImageView flContentFrame;
     Unbinder unbinder;
 
+    private SessionManager sessionManager;
+
     public static ReceivedBenefitQRFragment newInstance() {
         return new ReceivedBenefitQRFragment();
     }
@@ -41,7 +45,9 @@ public class ReceivedBenefitQRFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Bitmap bitmap = BarcodeUtils.encodeAsBitmapQR("Joséufiyufy865t87t7t87t",250);
+        sessionManager = new SessionManager(getContext());
+        UserEntity userEntity = sessionManager.getUserEntity();
+        Bitmap bitmap = BarcodeUtils.encodeAsBitmapQR(userEntity.getUser_id(),250);
         flContentFrame.setImageBitmap(bitmap);
     }
 
