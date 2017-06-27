@@ -20,6 +20,7 @@ public class ApiConstants {
     //API KEYS CONSTANTS
     public static final String GRANT_TYPE = "password";
     public static final String CLIENT_ID = "2";
+    public static final String APP_JSON = "application/json";
     public static final String CLIENT_SECRET = "KSHlBYOBsJClp3WQ1RBUlTORH9ujzEAz2uiVk8tr";
 
 }

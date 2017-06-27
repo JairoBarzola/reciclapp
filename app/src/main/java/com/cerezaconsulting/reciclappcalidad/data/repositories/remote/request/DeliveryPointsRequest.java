@@ -14,5 +14,6 @@ import retrofit2.http.Header;
 
 public interface DeliveryPointsRequest {
     @GET(ApiConstants.DELIVERY_POINTS)
-    Call<EntityTrackHolder<DeliveryPointEntity>> getDeliveryPoints(@Header("Authorization") String token);
+    Call<EntityTrackHolder<DeliveryPointEntity>> getDeliveryPoints(@Header("Authorization") String token,@Header("Accept") String json);
+
 }

@@ -7,10 +7,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cerezaconsulting.reciclappcalidad.R;
+import com.cerezaconsulting.reciclappcalidad.core.BaseActivity;
 import com.cerezaconsulting.reciclappcalidad.core.BaseFragment;
+import com.cerezaconsulting.reciclappcalidad.data.entities.DeliveryPointEntity;
+import com.cerezaconsulting.reciclappcalidad.presentation.contracts.DeliveryPointContract;
+import com.cerezaconsulting.reciclappcalidad.presentation.utils.ProgressDialogCustom;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,13 +31,15 @@ import butterknife.Unbinder;
  * Created by miguel on 13/06/17.
  */
 
-public class DeliveryPointsFragment extends BaseFragment implements OnMapReadyCallback {
+public class DeliveryPointsFragment extends BaseFragment implements OnMapReadyCallback,DeliveryPointContract.View {
 
     @BindView(R.id.mv_delivery_point)
     MapView mvDeliveryPoint;
     Unbinder unbinder;
 
+    private DeliveryPointContract.Presenter presenter;
     private GoogleMap googleMap;
+    private ProgressDialogCustom mProgressDialogCustom;
 
     public static DeliveryPointsFragment newInstance() {
         return new DeliveryPointsFragment();
@@ -43,6 +56,7 @@ public class DeliveryPointsFragment extends BaseFragment implements OnMapReadyCa
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mProgressDialogCustom = new ProgressDialogCustom(getContext(),"Cargando...");
         mvDeliveryPoint.onCreate(savedInstanceState);
         mvDeliveryPoint.getMapAsync(this);
     }
@@ -75,5 +89,52 @@ public class DeliveryPointsFragment extends BaseFragment implements OnMapReadyCa
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap  = googleMap;
+        presenter.start();
+    }
+
+    @Override
+    public void getDeliveryPoints(ArrayList<DeliveryPointEntity> list) {
+        CameraPosition cameraPosition = new CameraPosition.Builder()
+                .target(new LatLng(-12.0560204,-77.0866113))
+                .zoom(12)
+                .build();
+        googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+        for (DeliveryPointEntity entity: list){
+            LatLng latLng = new LatLng(entity.getLatitude(),entity.getLongitude());
+            googleMap.addMarker(new MarkerOptions().position(latLng).title(entity.getName()));
+        }
+
+    }
+
+    @Override
+    public void setLoadingIndicator(boolean active) {
+        if(mProgressDialogCustom!=null){
+            if(active){
+                mProgressDialogCustom.show();
+            }
+            else{
+                mProgressDialogCustom.dismiss();
+            }
+        }
+    }
+
+    @Override
+    public void setMessageError(String error) {
+        ((BaseActivity)getActivity()).showMessageError(error);
+    }
+
+    @Override
+    public void setDialogMessage(String message) {
+        ((BaseActivity)getActivity()).showMessage(message);
+    }
+
+    @Override
+    public boolean isActive() {
+        return isAdded();
+    }
+
+    @Override
+    public void setPresenter(DeliveryPointContract.Presenter presenter) {
+        this.presenter = presenter;
     }
 }

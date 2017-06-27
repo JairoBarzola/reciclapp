@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.core.BaseActivity;
 import com.cerezaconsulting.reciclappcalidad.presentation.fragments.MyDeliveriesFragment;
+import com.cerezaconsulting.reciclappcalidad.presentation.presenters.MyDeliveriesPresenter;
 import com.cerezaconsulting.reciclappcalidad.presentation.utils.ActivityUtils;
 
 import butterknife.BindView;
@@ -39,6 +40,7 @@ public class MyDeliveriesActivity extends BaseActivity {
             fragment = MyDeliveriesFragment.newInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),fragment,R.id.body);
         }
+        new MyDeliveriesPresenter(fragment,getApplicationContext());
     }
 
     @Override

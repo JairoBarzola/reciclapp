@@ -19,7 +19,7 @@ public class DeliveryPointEntity implements Serializable {
     private String district;
     @SerializedName("latitud")
     private double latitude;
-    @SerializedName("longitude")
+    @SerializedName("longitud")
     private double longitude;
 
     public String getId() {

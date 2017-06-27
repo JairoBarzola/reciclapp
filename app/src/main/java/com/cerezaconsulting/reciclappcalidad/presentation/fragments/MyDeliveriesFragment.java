@@ -10,7 +10,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.cerezaconsulting.reciclappcalidad.R;
+import com.cerezaconsulting.reciclappcalidad.core.BaseActivity;
 import com.cerezaconsulting.reciclappcalidad.core.BaseFragment;
+import com.cerezaconsulting.reciclappcalidad.data.entities.DeliveryEntity;
+import com.cerezaconsulting.reciclappcalidad.presentation.contracts.MyDeliveriesContract;
+import com.cerezaconsulting.reciclappcalidad.presentation.utils.ProgressDialogCustom;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,7 +27,7 @@ import butterknife.Unbinder;
  * Created by miguel on 30/05/17.
  */
 
-public class MyDeliveriesFragment extends BaseFragment {
+public class MyDeliveriesFragment extends BaseFragment implements MyDeliveriesContract.View{
 
     @BindView(R.id.rv_deliveries)
     RecyclerView rvDeliveries;
@@ -30,6 +36,9 @@ public class MyDeliveriesFragment extends BaseFragment {
     Unbinder unbinder;
     @BindView(R.id.btn_make_delivery)
     Button btnMakeDelivery;
+
+    private MyDeliveriesContract.Presenter presenter;
+    private ProgressDialogCustom mProgressDialogCustom;
 
     public static MyDeliveriesFragment newInstance() {
         return new MyDeliveriesFragment();
@@ -46,7 +55,7 @@ public class MyDeliveriesFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        mProgressDialogCustom = new ProgressDialogCustom(getContext(),"Cargando...");
     }
 
 
@@ -58,5 +67,43 @@ public class MyDeliveriesFragment extends BaseFragment {
 
     @OnClick(R.id.btn_make_delivery)
     public void onViewClicked() {
+        
+    }
+
+    @Override
+    public void getMyDeliveries(ArrayList<DeliveryEntity> list) {
+
+    }
+
+    @Override
+    public void setLoadingIndicator(boolean active) {
+        if(mProgressDialogCustom!=null){
+            if(active){
+                mProgressDialogCustom.show();
+            }
+            else{
+                mProgressDialogCustom.dismiss();
+            }
+        }
+    }
+
+    @Override
+    public void setMessageError(String error) {
+        ((BaseActivity)getActivity()).showMessageError(error);
+    }
+
+    @Override
+    public void setDialogMessage(String message) {
+        ((BaseActivity)getActivity()).showMessage(message);
+    }
+
+    @Override
+    public boolean isActive() {
+        return isAdded();
+    }
+
+    @Override
+    public void setPresenter(MyDeliveriesContract.Presenter presenter) {
+        this.presenter = presenter;
     }
 }
