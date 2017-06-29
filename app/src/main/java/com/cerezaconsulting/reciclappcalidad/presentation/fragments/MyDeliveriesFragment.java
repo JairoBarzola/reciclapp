@@ -2,6 +2,7 @@ package com.cerezaconsulting.reciclappcalidad.presentation.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.core.BaseActivity;
 import com.cerezaconsulting.reciclappcalidad.core.BaseFragment;
 import com.cerezaconsulting.reciclappcalidad.data.entities.DeliveryEntity;
+import com.cerezaconsulting.reciclappcalidad.presentation.adapters.MyDeliveriesAdapter;
 import com.cerezaconsulting.reciclappcalidad.presentation.contracts.MyDeliveriesContract;
 import com.cerezaconsulting.reciclappcalidad.presentation.utils.ProgressDialogCustom;
 
@@ -37,6 +39,8 @@ public class MyDeliveriesFragment extends BaseFragment implements MyDeliveriesCo
     @BindView(R.id.btn_make_delivery)
     Button btnMakeDelivery;
 
+    private LinearLayoutManager layoutManager;
+    private MyDeliveriesAdapter adapter;
     private MyDeliveriesContract.Presenter presenter;
     private ProgressDialogCustom mProgressDialogCustom;
 
@@ -56,8 +60,19 @@ public class MyDeliveriesFragment extends BaseFragment implements MyDeliveriesCo
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mProgressDialogCustom = new ProgressDialogCustom(getContext(),"Cargando...");
+        layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        rvDeliveries.setLayoutManager(layoutManager);
+
+        adapter = new MyDeliveriesAdapter(new ArrayList<DeliveryEntity>());
+        rvDeliveries.setAdapter(adapter);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.start();
+    }
 
     @Override
     public void onDestroyView() {
@@ -72,7 +87,10 @@ public class MyDeliveriesFragment extends BaseFragment implements MyDeliveriesCo
 
     @Override
     public void getMyDeliveries(ArrayList<DeliveryEntity> list) {
-
+        if(adapter!=null){
+            adapter.setList(list);
+            tvNoDeliveries.setVisibility(list.size()!=0?View.GONE:View.VISIBLE);
+        }
     }
 
     @Override

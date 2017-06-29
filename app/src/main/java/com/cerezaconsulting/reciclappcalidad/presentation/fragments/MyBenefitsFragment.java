@@ -10,6 +10,10 @@ import android.widget.TextView;
 
 import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.core.BaseFragment;
+import com.cerezaconsulting.reciclappcalidad.data.entities.BenefitEntity;
+import com.cerezaconsulting.reciclappcalidad.presentation.contracts.MyBenefitsContract;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,7 +23,7 @@ import butterknife.Unbinder;
  * Created by miguel on 30/05/17.
  */
 
-public class MyBenefitsFragment extends BaseFragment {
+public class MyBenefitsFragment extends BaseFragment implements MyBenefitsContract.View{
 
     @BindView(R.id.rv_list)
     RecyclerView rvList;
@@ -43,5 +47,35 @@ public class MyBenefitsFragment extends BaseFragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @Override
+    public void loadBenefits(ArrayList<BenefitEntity> list) {
+
+    }
+
+    @Override
+    public void setLoadingIndicator(boolean active) {
+
+    }
+
+    @Override
+    public void setMessageError(String error) {
+
+    }
+
+    @Override
+    public void setDialogMessage(String message) {
+
+    }
+
+    @Override
+    public boolean isActive() {
+        return false;
+    }
+
+    @Override
+    public void setPresenter(MyBenefitsContract.Presenter presenter) {
+
     }
 }

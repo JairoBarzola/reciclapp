@@ -16,5 +16,7 @@ import retrofit2.http.Path;
 
 public interface DeliveriesRequest {
     @GET(ApiConstants.USER_DELIVERIES)
-    Call<ArrayList<DeliveryEntity>> getMyDeliveries(@Header("Authorization") String token, @Header("Accept") String accept, @Path("id") String userId);
+    Call<ArrayList<DeliveryEntity>> getMyDeliveries(@Header("Authorization") String token, @Header("Accept") String accept,
+                                                    @Path("id") String userId);
+
 }

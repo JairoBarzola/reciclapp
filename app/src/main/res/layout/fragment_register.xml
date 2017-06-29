@@ -49,7 +49,7 @@
                 android:inputType="datetime"
                 android:focusable="false"
                 android:id="@+id/et_birth_date"
-                android:hint="@string/birthdate"/>
+                android:hint="@string/birth_date"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

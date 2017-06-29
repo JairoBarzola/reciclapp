@@ -20,12 +20,15 @@
     <string name="first_name">Nombre</string>
     <string name="last_name">Apellido</string>
     <string name="dni">DNI</string>
-    <string name="birthdate">Fecha de nacimiento</string>
+    <string name="birth_date">Fecha de nacimiento</string>
     <string name="email">Correo electrónico</string>
     <string name="username">Nombre de usuario</string>
     <string name="repeat_password">Repetir contraseña</string>
     <string name="district">Distrito</string>
     <string name="direction">Dirección</string>
+
+    //profile
+
 
     //drawer strings
     <string name="drawer_open">Se abrió el menú</string>

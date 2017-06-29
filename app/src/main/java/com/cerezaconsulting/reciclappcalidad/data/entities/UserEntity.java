@@ -3,6 +3,7 @@ package com.cerezaconsulting.reciclappcalidad.data.entities;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by miguel on 16/05/17.
@@ -31,6 +32,8 @@ public class UserEntity implements Serializable{
     private String district;
     @SerializedName("nacimiento")
     private String birth_date;
+
+    private ArrayList<BenefitEntity> benefits;
 
     private String password;
 
@@ -136,6 +139,14 @@ public class UserEntity implements Serializable{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public ArrayList<BenefitEntity> getBenefits() {
+        return benefits;
+    }
+
+    public void setBenefits(ArrayList<BenefitEntity> benefits) {
+        this.benefits = benefits;
     }
 
     public String getFullName(){

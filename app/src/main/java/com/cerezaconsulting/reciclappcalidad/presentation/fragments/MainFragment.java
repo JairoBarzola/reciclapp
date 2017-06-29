@@ -12,6 +12,7 @@ import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.core.BaseFragment;
 import com.cerezaconsulting.reciclappcalidad.data.entities.UserEntity;
 import com.cerezaconsulting.reciclappcalidad.data.repositories.local.SessionManager;
+import com.cerezaconsulting.reciclappcalidad.presentation.activities.AccountActivity;
 import com.cerezaconsulting.reciclappcalidad.presentation.activities.BenefitsActivity;
 import com.cerezaconsulting.reciclappcalidad.presentation.activities.DeliveryPointsActivity;
 import com.cerezaconsulting.reciclappcalidad.presentation.activities.MyDeliveriesActivity;
@@ -86,6 +87,7 @@ public class MainFragment extends BaseFragment {
                 next(getActivity(), null, BenefitsActivity.class, false);
                 break;
             case R.id.btn_account:
+                next(getActivity(), null, AccountActivity.class, false);
                 break;
         }
     }

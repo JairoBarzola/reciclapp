@@ -13,6 +13,7 @@ import com.cerezaconsulting.reciclappcalidad.core.BaseFragment;
 import com.cerezaconsulting.reciclappcalidad.data.entities.UserEntity;
 import com.cerezaconsulting.reciclappcalidad.data.repositories.local.SessionManager;
 import com.cerezaconsulting.reciclappcalidad.presentation.utils.BarcodeUtils;
+import com.google.gson.Gson;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,7 +48,8 @@ public class ReceivedBenefitQRFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         sessionManager = new SessionManager(getContext());
         UserEntity userEntity = sessionManager.getUserEntity();
-        Bitmap bitmap = BarcodeUtils.encodeAsBitmapQR(userEntity.getUser_id(),250);
+        String userJson = new Gson().toJson(userEntity);
+        Bitmap bitmap = BarcodeUtils.encodeAsBitmapQR(userJson,250);
         flContentFrame.setImageBitmap(bitmap);
     }
 

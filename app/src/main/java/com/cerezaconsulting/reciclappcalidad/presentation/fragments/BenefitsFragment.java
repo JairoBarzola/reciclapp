@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.core.BaseFragment;
 import com.cerezaconsulting.reciclappcalidad.presentation.adapters.FragmentViewPagerAdapter;
+import com.cerezaconsulting.reciclappcalidad.presentation.presenters.GetBenefitsPresenter;
+import com.cerezaconsulting.reciclappcalidad.presentation.presenters.MyBenefitsPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,8 +51,12 @@ public class BenefitsFragment extends BaseFragment {
 
     private void setupViewPager(ViewPager viewPager) {
         FragmentViewPagerAdapter adapter = new FragmentViewPagerAdapter(getActivity().getSupportFragmentManager());
-        adapter.addFragment(new GetBenefitsFragment(), getString(R.string.get_benefits));
-        adapter.addFragment(new MyBenefitsFragment(), getString(R.string.my_benefits));
+        GetBenefitsFragment getBenefitsFragment = GetBenefitsFragment.newInstance();
+        new GetBenefitsPresenter(getBenefitsFragment,getContext());
+        adapter.addFragment(getBenefitsFragment, getString(R.string.get_benefits));
+        MyBenefitsFragment myBenefitsFragment = MyBenefitsFragment.newInstance();
+        new MyBenefitsPresenter(myBenefitsFragment,getContext());
+        adapter.addFragment(myBenefitsFragment, getString(R.string.my_benefits));
         viewPager.setAdapter(adapter);
     }
 

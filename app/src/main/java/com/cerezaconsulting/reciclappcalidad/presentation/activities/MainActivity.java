@@ -94,8 +94,7 @@ public class MainActivity extends BaseActivity {
                 next(this,null,BenefitsActivity.class,false);
                 break;
             case R.id.action_account:
-                sessionManager.closeSession();
-                next(this,null,LoginActivity.class,true);
+                next(this, null, AccountActivity.class, false);
                 break;
             default:
                 break;
