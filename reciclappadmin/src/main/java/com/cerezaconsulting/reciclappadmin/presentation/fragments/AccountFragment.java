@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.cerezaconsulting.reciclappadmin.R;
 import com.cerezaconsulting.reciclappadmin.core.BaseFragment;
+import com.cerezaconsulting.reciclappadmin.data.entities.UserEntity;
+import com.cerezaconsulting.reciclappadmin.presentation.contracts.AccountContract;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,7 +21,7 @@ import butterknife.Unbinder;
  * Created by miguel on 13/06/17.
  */
 
-public class AccountFragment extends BaseFragment {
+public class AccountFragment extends BaseFragment implements AccountContract.View{
 
     @BindView(R.id.iv_profile)
     ImageView ivProfile;
@@ -32,6 +34,8 @@ public class AccountFragment extends BaseFragment {
     @BindView(R.id.tv_email)
     TextView tvEmail;
     Unbinder unbinder;
+
+    private AccountContract.Presenter presenter;
 
     public static AccountFragment newInstance() {
         return new AccountFragment();
@@ -46,8 +50,52 @@ public class AccountFragment extends BaseFragment {
     }
 
     @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.start();
+    }
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @Override
+    public void loadUser(UserEntity userEntity) {
+        tvFullName.setText(userEntity.getFullName());
+        tvDocumentNumber.setText(userEntity.getDni());
+        tvEmail.setText(userEntity.getEmail());
+    }
+
+    @Override
+    public void setLoadingIndicator(boolean active) {
+
+    }
+
+    @Override
+    public void setMessageError(String error) {
+
+    }
+
+    @Override
+    public void setDialogMessage(String message) {
+
+    }
+
+    @Override
+    public boolean isActive() {
+        return isAdded();
+    }
+
+    @Override
+    public void setPresenter(AccountContract.Presenter presenter) {
+        this.presenter = presenter;
     }
 }

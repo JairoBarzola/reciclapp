@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.data.entities.DeliveryEntity;
 import com.cerezaconsulting.reciclappcalidad.presentation.adapters.listeners.OnClickListListener;
+import com.cerezaconsulting.reciclappcalidad.presentation.presenters.communicators.CommunicatorEntity;
 
 import java.util.ArrayList;
 
@@ -22,9 +23,11 @@ import butterknife.ButterKnife;
 public class MyDeliveriesAdapter extends RecyclerView.Adapter<MyDeliveriesAdapter.ViewHolder> implements OnClickListListener {
 
     private ArrayList<DeliveryEntity> list;
+    private CommunicatorEntity<DeliveryEntity> communicatorEntity;
 
-    public MyDeliveriesAdapter(ArrayList<DeliveryEntity> list) {
+    public MyDeliveriesAdapter(ArrayList<DeliveryEntity> list, CommunicatorEntity<DeliveryEntity> communicatorEntity) {
         this.list = list;
+        this.communicatorEntity = communicatorEntity;
     }
 
     public void setList(ArrayList<DeliveryEntity> list) {
@@ -54,7 +57,7 @@ public class MyDeliveriesAdapter extends RecyclerView.Adapter<MyDeliveriesAdapte
 
     @Override
     public void onClick(int position) {
-
+        communicatorEntity.onClick(list.get(position));
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -68,7 +71,7 @@ public class MyDeliveriesAdapter extends RecyclerView.Adapter<MyDeliveriesAdapte
             super(itemView);
             ButterKnife.bind(this,itemView);
             this.onClickListListener = onClickListListener;
-            itemView.setOnClickListener(this);
+            this.itemView.setOnClickListener(this);
         }
 
         @Override

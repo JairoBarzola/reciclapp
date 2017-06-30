@@ -10,6 +10,7 @@ import com.cerezaconsulting.reciclappcalidad.data.repositories.remote.ApiConstan
 import com.cerezaconsulting.reciclappcalidad.data.repositories.remote.ServiceFactory;
 import com.cerezaconsulting.reciclappcalidad.data.repositories.remote.request.DeliveriesRequest;
 import com.cerezaconsulting.reciclappcalidad.presentation.contracts.MyDeliveriesContract;
+import com.cerezaconsulting.reciclappcalidad.presentation.presenters.communicators.CommunicatorEntity;
 
 import java.util.ArrayList;
 
@@ -21,7 +22,7 @@ import retrofit2.Response;
  * Created by miguel on 21/06/17.
  */
 
-public class MyDeliveriesPresenter implements MyDeliveriesContract.Presenter {
+public class MyDeliveriesPresenter implements MyDeliveriesContract.Presenter,CommunicatorEntity<DeliveryEntity> {
 
     private MyDeliveriesContract.View mView;
     private Context context;
@@ -65,5 +66,10 @@ public class MyDeliveriesPresenter implements MyDeliveriesContract.Presenter {
                 mView.setMessageError(context.getString(R.string.no_server_connection_try_it_later));
             }
         });
+    }
+
+    @Override
+    public void onClick(DeliveryEntity entity) {
+        mView.deliveryDetail(entity);
     }
 }

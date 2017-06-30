@@ -2,6 +2,7 @@ package com.cerezaconsulting.reciclappcalidad.presentation.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 
 import com.cerezaconsulting.reciclappcalidad.R;
@@ -27,6 +28,8 @@ public class DeliveryPointsActivity extends BaseActivity {
         setContentView(R.layout.activity_back);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
 
         DeliveryPointsFragment fragment = (DeliveryPointsFragment) getSupportFragmentManager().findFragmentById(R.id.body);
         if(fragment==null){
@@ -34,5 +37,11 @@ public class DeliveryPointsActivity extends BaseActivity {
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),fragment,R.id.body);
         }
         new DeliveryPointsPresenter(fragment,getApplicationContext());
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

@@ -3,6 +3,7 @@ package com.cerezaconsulting.reciclappcalidad.data.entities;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.StringTokenizer;
 
 /**
  * Created by miguel on 20/06/17.
@@ -45,7 +46,8 @@ public class DeliveryEntity implements Serializable {
     }
 
     public String getDate() {
-        return date;
+        StringTokenizer st = new StringTokenizer(date);
+        return st.nextToken();
     }
 
     public void setDate(String date) {

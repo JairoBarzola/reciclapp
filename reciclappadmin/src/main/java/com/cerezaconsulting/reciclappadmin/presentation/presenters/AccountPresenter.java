@@ -1,13 +1,13 @@
-package com.cerezaconsulting.reciclappcalidad.presentation.presenters;
+package com.cerezaconsulting.reciclappadmin.presentation.presenters;
 
 import android.content.Context;
 
-import com.cerezaconsulting.reciclappcalidad.data.entities.UserEntity;
-import com.cerezaconsulting.reciclappcalidad.data.repositories.local.SessionManager;
-import com.cerezaconsulting.reciclappcalidad.presentation.contracts.AccountContract;
+import com.cerezaconsulting.reciclappadmin.data.entities.UserEntity;
+import com.cerezaconsulting.reciclappadmin.data.repositories.local.SessionManager;
+import com.cerezaconsulting.reciclappadmin.presentation.contracts.AccountContract;
 
 /**
- * Created by miguel on 29/06/17.
+ * Created by miguel on 30/06/17.
  */
 
 public class AccountPresenter implements AccountContract.Presenter {
@@ -26,13 +26,6 @@ public class AccountPresenter implements AccountContract.Presenter {
     @Override
     public void start() {
         UserEntity userEntity = sessionManager.getUserEntity();
-        mView.setLoadingIndicator(true);
         mView.loadUser(userEntity);
-        mView.setLoadingIndicator(false);
-    }
-
-    @Override
-    public void closeSession() {
-        sessionManager.closeSession();
     }
 }

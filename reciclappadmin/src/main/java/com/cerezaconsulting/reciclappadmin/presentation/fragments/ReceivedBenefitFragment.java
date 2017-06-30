@@ -11,6 +11,9 @@ import android.widget.Toast;
 
 import com.cerezaconsulting.reciclappadmin.R;
 import com.cerezaconsulting.reciclappadmin.core.BaseFragment;
+import com.cerezaconsulting.reciclappadmin.data.entities.UserEntity;
+import com.cerezaconsulting.reciclappadmin.presentation.activities.ReceivedBenefitActivity;
+import com.google.gson.Gson;
 import com.google.zxing.Result;
 
 import java.util.List;
@@ -113,7 +116,8 @@ public class ReceivedBenefitFragment extends BaseFragment implements ZXingScanne
 
     @Override
     public void handleResult(Result result) {
-        Toast.makeText(getContext(), result.getText(), Toast.LENGTH_SHORT).show();
+        String user = result.getText();
+        ((ReceivedBenefitActivity)getActivity()).sendUser(user);
     }
 
 }

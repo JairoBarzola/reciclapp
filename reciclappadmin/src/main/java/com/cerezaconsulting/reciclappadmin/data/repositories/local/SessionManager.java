@@ -50,10 +50,9 @@ public class SessionManager {
         }
         editor.commit();
     }
-    public UserEntity getUserEntity() throws JSONException {
+    public UserEntity getUserEntity() {
         String userData = preferences.getString(USER_JSON, null);
-        UserEntity user_dto = new Gson().fromJson(userData, UserEntity.class);
-        return user_dto;
+        return new Gson().fromJson(userData, UserEntity.class);
     }
     public String getUserToken() {
         if (isLogin()) {

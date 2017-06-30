@@ -76,4 +76,11 @@
         android:layout_marginBottom="10dp"
         android:textSize="@dimen/normal_text"
         android:textColor="@color/black_select"/>
+    <Button
+        android:layout_width="match_parent"
+        android:background="@drawable/button_green"
+        android:text="Cerrar Sesión"
+        android:id="@+id/btn_close_session"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content" />
 </LinearLayout>

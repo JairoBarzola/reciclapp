@@ -61,6 +61,7 @@
                 android:textColor="@color/black"
                 android:id="@+id/tv_user_name"
                 android:visibility="gone"
+                android:layout_margin="10dp"
                 android:textSize="@dimen/xlarge_text"
                 android:layout_height="wrap_content" />
         </LinearLayout>

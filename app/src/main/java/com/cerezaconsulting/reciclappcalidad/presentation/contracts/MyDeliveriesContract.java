@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public interface MyDeliveriesContract {
     interface View extends BaseView<Presenter> {
         void getMyDeliveries(ArrayList<DeliveryEntity> list);
+        void deliveryDetail(DeliveryEntity deliveryEntity);
     }
     interface Presenter extends BasePresenter{
 

@@ -15,21 +15,14 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:id="@+id/tv_date_and_weight"
+            android:id="@+id/tv_description"
             android:textSize="@dimen/normal_text"/>
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
             android:textColor="@color/black"
             android:id="@+id/tv_points"
-            android:gravity="right"
             android:textSize="@dimen/normal_text"/>
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_keyboard_arrow_right"
-            android:tint="@color/colorPrimaryDark"
-            android:layout_margin="5dp"/>
+
     </LinearLayout>
 </LinearLayout>

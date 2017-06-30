@@ -6,6 +6,7 @@ import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.data.entities.AccessTokenEntity;
 import com.cerezaconsulting.reciclappcalidad.data.entities.UserEntity;
 import com.cerezaconsulting.reciclappcalidad.data.repositories.local.SessionManager;
+import com.cerezaconsulting.reciclappcalidad.data.repositories.remote.ApiConstants;
 import com.cerezaconsulting.reciclappcalidad.data.repositories.remote.ServiceFactory;
 import com.cerezaconsulting.reciclappcalidad.data.repositories.remote.request.UserRequest;
 import com.cerezaconsulting.reciclappcalidad.presentation.contracts.RegisterContract;
@@ -33,7 +34,7 @@ public class RegisterPresenter implements RegisterContract.Presenter {
     public void registerUser(UserEntity userEntity) {
         mView.setLoadingIndicator(true);
         UserRequest userRequest = ServiceFactory.createService(UserRequest.class);
-        Call<Void> call = userRequest.registerUser(userEntity.getFirst_name(),userEntity.getLast_name(),userEntity.getEmail(),userEntity.getDirection(),userEntity.getDistrict(),userEntity.getBirth_date(),userEntity.getPassword());
+        Call<Void> call = userRequest.registerUser(ApiConstants.APP_JSON,userEntity);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

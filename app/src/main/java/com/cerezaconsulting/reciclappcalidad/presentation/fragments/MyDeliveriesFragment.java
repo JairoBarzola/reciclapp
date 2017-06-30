@@ -14,8 +14,11 @@ import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.core.BaseActivity;
 import com.cerezaconsulting.reciclappcalidad.core.BaseFragment;
 import com.cerezaconsulting.reciclappcalidad.data.entities.DeliveryEntity;
+import com.cerezaconsulting.reciclappcalidad.presentation.activities.DeliveryDetailActivity;
+import com.cerezaconsulting.reciclappcalidad.presentation.activities.ReceivedBenefitQrActivity;
 import com.cerezaconsulting.reciclappcalidad.presentation.adapters.MyDeliveriesAdapter;
 import com.cerezaconsulting.reciclappcalidad.presentation.contracts.MyDeliveriesContract;
+import com.cerezaconsulting.reciclappcalidad.presentation.presenters.communicators.CommunicatorEntity;
 import com.cerezaconsulting.reciclappcalidad.presentation.utils.ProgressDialogCustom;
 
 import java.util.ArrayList;
@@ -64,7 +67,7 @@ public class MyDeliveriesFragment extends BaseFragment implements MyDeliveriesCo
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rvDeliveries.setLayoutManager(layoutManager);
 
-        adapter = new MyDeliveriesAdapter(new ArrayList<DeliveryEntity>());
+        adapter = new MyDeliveriesAdapter(new ArrayList<DeliveryEntity>(),(CommunicatorEntity<DeliveryEntity>)presenter);
         rvDeliveries.setAdapter(adapter);
     }
 
@@ -82,7 +85,7 @@ public class MyDeliveriesFragment extends BaseFragment implements MyDeliveriesCo
 
     @OnClick(R.id.btn_make_delivery)
     public void onViewClicked() {
-        
+        next(getActivity(),null, ReceivedBenefitQrActivity.class,false);
     }
 
     @Override
@@ -91,6 +94,13 @@ public class MyDeliveriesFragment extends BaseFragment implements MyDeliveriesCo
             adapter.setList(list);
             tvNoDeliveries.setVisibility(list.size()!=0?View.GONE:View.VISIBLE);
         }
+    }
+
+    @Override
+    public void deliveryDetail(DeliveryEntity deliveryEntity) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("delivery",deliveryEntity);
+        next(getActivity(),bundle,DeliveryDetailActivity.class,false);
     }
 
     @Override

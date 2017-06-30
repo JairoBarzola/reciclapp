@@ -127,4 +127,12 @@ public class UserEntity implements Serializable {
     public void setBirth_date(String birth_date) {
         this.birth_date = birth_date;
     }
+
+    public String getFullName(){
+        String user = "";
+        if(first_name!=null && last_name!=null){
+            user = first_name+" "+last_name;
+        }
+        return user;
+    }
 }

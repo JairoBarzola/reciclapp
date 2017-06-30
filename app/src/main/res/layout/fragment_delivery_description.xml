@@ -50,14 +50,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimary"
-                android:text="@string/delivery_supervisor"
+                android:text="@string/direction"
                 android:textSize="@dimen/tiny_text"
                 android:layout_marginTop="10dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_supervisor"
-                android:text="@string/delivery_supervisor"
+                android:text="@string/direction"
                 android:textSize="@dimen/normal_text"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/black_select"/>
@@ -82,10 +82,12 @@
                 android:textColor="@color/colorPrimary"
                 android:text="@string/delivery_detail"
                 android:textSize="@dimen/tiny_text"
+                android:visibility="gone"
                 android:layout_marginTop="10dp"/>
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/rv_delivery_list"
                 android:layout_marginTop="5dp"/>
             <View
                 android:layout_width="match_parent"
@@ -110,6 +112,7 @@
                     android:textColor="@color/black"
                     android:textAllCaps="true"
                     android:textSize="@dimen/normal_text"
+                    android:id="@+id/tv_total_points"
                     android:text="@string/total_points"
                     android:layout_height="wrap_content" />
             </LinearLayout>

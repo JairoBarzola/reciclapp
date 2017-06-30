@@ -5,6 +5,7 @@ import com.cerezaconsulting.reciclappcalidad.data.entities.UserEntity;
 import com.cerezaconsulting.reciclappcalidad.data.repositories.remote.ApiConstants;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -16,12 +17,9 @@ import retrofit2.http.POST;
  */
 
 public interface UserRequest {
-    @FormUrlEncoded
+    //@FormUrlEncoded
     @POST(ApiConstants.REGISTER)
-    Call<Void> registerUser(@Field("nombre") String first_name,@Field("apellido") String last_name,
-                                  @Field("email") String email, @Field("direccion") String direction,
-                                  @Field("distrito") String district, @Field("nacimiento") String birth_date,
-                            @Field("password") String password);
+    Call<Void> registerUser(@Header("Content-type") String contentType, @Body UserEntity userEntity);
 
     @FormUrlEncoded
     @POST(ApiConstants.LOGIN)
