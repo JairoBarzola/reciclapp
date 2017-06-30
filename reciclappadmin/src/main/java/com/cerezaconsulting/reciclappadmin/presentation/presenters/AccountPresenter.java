@@ -28,4 +28,9 @@ public class AccountPresenter implements AccountContract.Presenter {
         UserEntity userEntity = sessionManager.getUserEntity();
         mView.loadUser(userEntity);
     }
+
+    @Override
+    public void closeSession() {
+        sessionManager.closeSession();;
+    }
 }

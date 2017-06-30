@@ -13,6 +13,6 @@ public interface AccountContract {
         void loadUser(UserEntity userEntity);
     }
     interface Presenter extends BasePresenter{
-
+        void closeSession();
     }
 }

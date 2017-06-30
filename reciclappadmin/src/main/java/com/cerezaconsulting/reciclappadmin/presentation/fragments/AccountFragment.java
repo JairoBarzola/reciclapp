@@ -5,23 +5,26 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cerezaconsulting.reciclappadmin.R;
 import com.cerezaconsulting.reciclappadmin.core.BaseFragment;
 import com.cerezaconsulting.reciclappadmin.data.entities.UserEntity;
+import com.cerezaconsulting.reciclappadmin.presentation.activities.LoadActivity;
 import com.cerezaconsulting.reciclappadmin.presentation.contracts.AccountContract;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
  * Created by miguel on 13/06/17.
  */
 
-public class AccountFragment extends BaseFragment implements AccountContract.View{
+public class AccountFragment extends BaseFragment implements AccountContract.View {
 
     @BindView(R.id.iv_profile)
     ImageView ivProfile;
@@ -34,6 +37,8 @@ public class AccountFragment extends BaseFragment implements AccountContract.Vie
     @BindView(R.id.tv_email)
     TextView tvEmail;
     Unbinder unbinder;
+    @BindView(R.id.btn_close_session)
+    Button btnCloseSession;
 
     private AccountContract.Presenter presenter;
 
@@ -71,6 +76,7 @@ public class AccountFragment extends BaseFragment implements AccountContract.Vie
     public void loadUser(UserEntity userEntity) {
         tvFullName.setText(userEntity.getFullName());
         tvDocumentNumber.setText(userEntity.getDni());
+        tvBirthDate.setText(userEntity.getBirth_date());
         tvEmail.setText(userEntity.getEmail());
     }
 
@@ -97,5 +103,11 @@ public class AccountFragment extends BaseFragment implements AccountContract.Vie
     @Override
     public void setPresenter(AccountContract.Presenter presenter) {
         this.presenter = presenter;
+    }
+
+    @OnClick(R.id.btn_close_session)
+    public void onViewClicked() {
+        presenter.closeSession();
+        newFlag(getActivity(),null, LoadActivity.class);
     }
 }
