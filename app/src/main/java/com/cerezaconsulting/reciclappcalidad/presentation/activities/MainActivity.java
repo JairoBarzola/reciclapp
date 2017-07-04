@@ -40,7 +40,7 @@ public class MainActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
         assert ab != null;
-        ab.setTitle("");
+        ab.setTitle(getString(R.string.app_name));
         ab.setDisplayHomeAsUpEnabled(true);
         setupDrawerContent(navigationView);
 

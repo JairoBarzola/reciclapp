@@ -29,6 +29,7 @@ public class DeliveryPointsActivity extends BaseActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
+        ab.setTitle(getString(R.string.collection_points));
         ab.setDisplayHomeAsUpEnabled(true);
 
         DeliveryPointsFragment fragment = (DeliveryPointsFragment) getSupportFragmentManager().findFragmentById(R.id.body);

@@ -80,6 +80,12 @@ public class MainActivity extends BaseActivity {
         // position
 
         switch (menuItem.getItemId()) {
+            case R.id.action_recycle:
+                next(this,null,RegisterDeliveryActivity.class,false);
+                break;
+            case R.id.action_account:
+                next(this,null,AccountActivity.class,false);
+                break;
             default:
                 break;
 

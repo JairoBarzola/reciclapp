@@ -3,6 +3,7 @@ package com.cerezaconsulting.reciclappcalidad.data.entities;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
@@ -20,6 +21,11 @@ public class DeliveryEntity implements Serializable {
     private String date;
     @SerializedName("acopio")
     private GatheringEntity gatheringEntity;
+    @SerializedName("supervisor")
+    private UserEntity userEntity;
+    @SerializedName("detalles")
+    private ArrayList<DeliveryDetailEntity> deliveryDetailEntities;
+
 
     public String getId() {
         return id;
@@ -60,5 +66,21 @@ public class DeliveryEntity implements Serializable {
 
     public void setGatheringEntity(GatheringEntity gatheringEntity) {
         this.gatheringEntity = gatheringEntity;
+    }
+
+    public UserEntity getUserEntity() {
+        return userEntity;
+    }
+
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
+    }
+
+    public ArrayList<DeliveryDetailEntity> getDeliveryDetailEntities() {
+        return deliveryDetailEntities;
+    }
+
+    public void setDeliveryDetailEntities(ArrayList<DeliveryDetailEntity> deliveryDetailEntities) {
+        this.deliveryDetailEntities = deliveryDetailEntities;
     }
 }

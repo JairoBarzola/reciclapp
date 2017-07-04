@@ -42,6 +42,8 @@ public class MainFragment extends BaseFragment {
     Unbinder unbinder;
     @BindView(R.id.tv_welcome_user)
     TextView tvWelcomeUser;
+    @BindView(R.id.tv_points)
+    TextView tvPoints;
 
     private SessionManager sessionManager;
 
@@ -62,7 +64,8 @@ public class MainFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         sessionManager = new SessionManager(getContext());
         UserEntity userEntity = sessionManager.getUserEntity();
-        tvWelcomeUser.setText(getString(R.string.hello)+" "+userEntity.getFullName()+getString(R.string.good_day));
+        tvWelcomeUser.setText(getString(R.string.hello) + " " + userEntity.getFullName() + getString(R.string.good_day));
+        tvPoints.setText(getString(R.string.to_date_you_have)+" "+userEntity.getPoints()+" "+getString(R.string.points));
     }
 
     @Override

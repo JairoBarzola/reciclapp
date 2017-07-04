@@ -81,7 +81,11 @@ public class RegisterDeliveryFragment extends BaseFragment implements RegisterDe
         if(requestCode==1){
             if(resultCode==USER_CODE){
                 String user = data.getStringExtra("user");
-                userEntity = new Gson().fromJson(user,UserEntity.class);
+                try {
+                    userEntity = new Gson().fromJson(user, UserEntity.class);
+                }catch (Exception e){
+                    setMessageError("No se pudo leer el código, intente nuevamente");
+                }
                 tvUserName.setText("Su usuario es: "+userEntity.getFullName());
                 tvUserName.setVisibility(View.VISIBLE);
             }

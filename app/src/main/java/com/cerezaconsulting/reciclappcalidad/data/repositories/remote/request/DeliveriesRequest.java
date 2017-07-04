@@ -1,5 +1,6 @@
 package com.cerezaconsulting.reciclappcalidad.data.repositories.remote.request;
 
+import com.cerezaconsulting.reciclappcalidad.data.entities.DeliveryDetailEntity;
 import com.cerezaconsulting.reciclappcalidad.data.entities.DeliveryEntity;
 import com.cerezaconsulting.reciclappcalidad.data.repositories.remote.ApiConstants;
 
@@ -18,5 +19,9 @@ public interface DeliveriesRequest {
     @GET(ApiConstants.USER_DELIVERIES)
     Call<ArrayList<DeliveryEntity>> getMyDeliveries(@Header("Authorization") String token, @Header("Accept") String accept,
                                                     @Path("id") String userId);
+
+    @GET(ApiConstants.USER_DELIVERY_DESCRIPTION)
+    Call<ArrayList<DeliveryEntity>> getDescripcion(@Header("Authorization") String token, @Header("Accept") String accept,
+                                              @Path("id") String userId,@Path("dv_id") String deliveryId);
 
 }
