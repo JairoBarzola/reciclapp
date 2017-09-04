@@ -43,6 +43,7 @@ public class DeliveryPointsActivity extends BaseActivity {
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
+        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
         return true;
     }
 }

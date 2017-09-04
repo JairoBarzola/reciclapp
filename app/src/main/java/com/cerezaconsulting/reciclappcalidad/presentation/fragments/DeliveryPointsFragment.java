@@ -96,13 +96,14 @@ public class DeliveryPointsFragment extends BaseFragment implements OnMapReadyCa
     public void getDeliveryPoints(ArrayList<DeliveryPointEntity> list) {
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(new LatLng(-12.0560204,-77.0866113))
-                .zoom(12)
+                .zoom(15)
                 .build();
         googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         for (DeliveryPointEntity entity: list){
             LatLng latLng = new LatLng(entity.getLatitude(),entity.getLongitude());
             googleMap.addMarker(new MarkerOptions().position(latLng).title(entity.getName()));
         }
+        mvDeliveryPoint.onResume();
 
     }
 

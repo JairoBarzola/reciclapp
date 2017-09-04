@@ -49,7 +49,7 @@ public class ReceivedBenefitQRFragment extends BaseFragment {
         sessionManager = new SessionManager(getContext());
         UserEntity userEntity = sessionManager.getUserEntity();
         String userJson = new Gson().toJson(userEntity);
-        Bitmap bitmap = BarcodeUtils.encodeAsBitmapQR(userJson,250);
+        Bitmap bitmap = BarcodeUtils.encodeAsBitmapQR(userJson,550);
         flContentFrame.setImageBitmap(bitmap);
     }
 

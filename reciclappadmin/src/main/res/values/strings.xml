@@ -48,7 +48,7 @@
     //received benefit strings
     <string name="received_benefit_description_1">1. Junta tus desechos separado por tipo: plástico, vidrio y papel.</string>
     <string name="received_benefit_description_2">2. Llévalos a uno de nuestros puntos de acopio.</string>
-    <string name="received_benefit_description_3">3. Escanea el código QR que te mostrarán.</string>
+    <string name="received_benefit_description_3">3. Muestra el código QR para que lo escaneen.</string>
 
     //my history
     <string name="hello">¡Hola</string>

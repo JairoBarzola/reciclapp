@@ -1,6 +1,7 @@
 package com.cerezaconsulting.reciclappcalidad.presentation.presenters;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.data.entities.DeliveryPointEntity;

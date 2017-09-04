@@ -23,12 +23,30 @@ public class RegisterDeliveryPresenter implements RegisterDeliveryContract.Prese
     private RegisterDeliveryContract.View mView;
     private Context context;
     private SessionManager sessionManager;
+    String message;
 
     public RegisterDeliveryPresenter(RegisterDeliveryContract.View mView, Context context) {
         this.mView = mView;
         this.context = context;
         sessionManager = new SessionManager(context);
         this.mView.setPresenter(this);
+    }
+
+    @Override
+    public void verifyTextviews(String userId, String paper, String glass, String plastic) {
+        boolean state;
+        if(paper.isEmpty() && glass.isEmpty() && plastic.isEmpty()){
+            mView.showToast("Por favor llenar por lo menos una cantidad");
+            state=true;
+        }else state=false;
+        if(userId.isEmpty()){
+            if(!state){
+                mView.showToast("Por favor escanear código QR del colaborador");
+            }
+        }
+        if(!userId.isEmpty()&& state==false){
+            registerDelivery(userId,paper,glass,plastic);
+        }
     }
 
     @Override
@@ -47,6 +65,7 @@ public class RegisterDeliveryPresenter implements RegisterDeliveryContract.Prese
                 mView.setLoadingIndicator(false);
                 if(response.isSuccessful()){
                     mView.registerSuccessfully();
+                    mView.limpiarFragment();
                 }
                 else {
                     mView.setMessageError(context.getString(R.string.there_was_an_error_try_it_later));

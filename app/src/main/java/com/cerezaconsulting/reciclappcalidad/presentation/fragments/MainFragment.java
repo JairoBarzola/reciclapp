@@ -64,7 +64,7 @@ public class MainFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         sessionManager = new SessionManager(getContext());
         UserEntity userEntity = sessionManager.getUserEntity();
-        tvWelcomeUser.setText(getString(R.string.hello) + " " + userEntity.getFullName() + getString(R.string.good_day));
+        tvWelcomeUser.setText(getString(R.string.hello) + " " + userEntity.getFirst_name() + getString(R.string.good_day));
         tvPoints.setText(getString(R.string.to_date_you_have)+" "+userEntity.getPoints()+" "+getString(R.string.points));
     }
 

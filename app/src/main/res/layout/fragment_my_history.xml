@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/huge_text"
+        android:textStyle="bold"
         android:id="@+id/tv_welcome_user"
         android:text="@string/hello_user"
         android:textColor="@color/colorPrimaryDark"

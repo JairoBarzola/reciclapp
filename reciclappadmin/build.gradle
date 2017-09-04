@@ -23,10 +23,10 @@ android {
 
     productFlavors {
         prod {
-            buildConfigField 'String', 'BASE', '"http://67.205.191.54/api/v1/"'
+            buildConfigField 'String', 'BASE', '"http://198.199.84.9/api/v1/"'
         }
         mock {
-            buildConfigField 'String', 'BASE', '"http://67.205.191.54/api/v1/"'
+            buildConfigField 'String', 'BASE', '"http://198.199.84.9/api/v1/"'
             applicationIdSuffix = ".test"
         }
     }

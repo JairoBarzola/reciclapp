@@ -10,6 +10,7 @@
         android:textSize="@dimen/huge_text"
         android:id="@+id/tv_welcome_user"
         android:text="@string/hello_user"
+        android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginBottom="10dp"/>
     <LinearLayout

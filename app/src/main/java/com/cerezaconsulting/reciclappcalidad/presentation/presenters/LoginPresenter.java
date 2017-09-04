@@ -1,6 +1,7 @@
 package com.cerezaconsulting.reciclappcalidad.presentation.presenters;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.data.entities.AccessTokenEntity;
@@ -39,6 +40,8 @@ public class LoginPresenter implements LoginContract.Presenter{
         call.enqueue(new Callback<AccessTokenEntity>() {
             @Override
             public void onResponse(Call<AccessTokenEntity> call, Response<AccessTokenEntity> response) {
+
+                Log.i("Response :",response.message());
                 if(!mView.isActive()){
                     return;
                 }
