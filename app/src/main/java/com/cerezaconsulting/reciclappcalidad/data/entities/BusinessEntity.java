@@ -1,92 +1,122 @@
 package com.cerezaconsulting.reciclappcalidad.data.entities;
 
 import com.google.gson.annotations.SerializedName;
+import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by miguel on 29/06/17.
  */
 
-public class BusinessEntity implements Serializable {
-    @SerializedName("sponsor_id")
-    private String id;
-    @SerializedName("razon_social")
-    private String business_name;
-    @SerializedName("ruc")
-    private String business_document;
-    @SerializedName("direccion")
-    private String direction;
-    @SerializedName("telefono")
-    private String phone;
-    @SerializedName("contacto")
-    private String contact;
-    @SerializedName("distrito")
-    private String district;
-    private ArrayList<BenefitEntity> benefits;
+public class BusinessEntity extends ExpandableGroup<BenefitEntity>{
+    private int sponsor_id;
+    private String razon_social;
+    private String ruc;
+    private String direccion;
+    private String telefono;
+    private String contacto;
+    private String distrito;
+    private int estado;
+    private String createda_at;
+    private String updated_at;
+    private List<BenefitEntity> benefits = new ArrayList<>();
 
-    public String getId() {
-        return id;
+
+    public BusinessEntity(String title, List<BenefitEntity> items) {
+        super(title, items);
+        //this.razonSocial=title;
+        //this.benefits=items;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getRuc() {
+        return ruc;
     }
 
-    public String getBusiness_name() {
-        return business_name;
+    public void setRuc(String ruc) {
+        this.ruc = ruc;
     }
 
-    public void setBusiness_name(String business_name) {
-        this.business_name = business_name;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public String getBusiness_document() {
-        return business_document;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public void setBusiness_document(String business_document) {
-        this.business_document = business_document;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public String getDirection() {
-        return direction;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
-    public void setDirection(String direction) {
-        this.direction = direction;
+    public String getContacto() {
+        return contacto;
     }
 
-    public String getPhone() {
-        return phone;
+    public void setContacto(String contacto) {
+        this.contacto = contacto;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public String getDistrito() {
+        return distrito;
     }
 
-    public String getContact() {
-        return contact;
+    public void setDistrito(String distrito) {
+        this.distrito = distrito;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public int getEstado() {
+        return estado;
     }
 
-    public String getDistrict() {
-        return district;
+    public void setEstado(int estado) {
+        this.estado = estado;
     }
 
-    public void setDistrict(String district) {
-        this.district = district;
-    }
 
-    public ArrayList<BenefitEntity> getBenefits() {
+    public List<BenefitEntity> getBenefits() {
         return benefits;
     }
 
-    public void setBenefits(ArrayList<BenefitEntity> benefits) {
+    public void setBenefits(List<BenefitEntity> benefits) {
         this.benefits = benefits;
+    }
+
+    public int getSponsor_id() {
+        return sponsor_id;
+    }
+
+    public void setSponsor_id(int sponsor_id) {
+        this.sponsor_id = sponsor_id;
+    }
+
+    public String getRazon_social() {
+        return razon_social;
+    }
+
+    public void setRazon_social(String razon_social) {
+        this.razon_social = razon_social;
+    }
+
+    public String getCreateda_at() {
+        return createda_at;
+    }
+
+    public void setCreateda_at(String createda_at) {
+        this.createda_at = createda_at;
+    }
+
+    public String getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(String updated_at) {
+        this.updated_at = updated_at;
     }
 }

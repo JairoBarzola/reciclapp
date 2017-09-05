@@ -67,7 +67,11 @@ dependencies {
     compile helpLibraries.calligraphy
     compile helpLibraries.saaripar
     compile helpLibraries.dateTimePicker
-
+    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.google.code.gson:gson:2.6.1'
+    compile 'com.thoughtbot:expandablerecyclerview:1.0'
     compile googleService.maps
     compile googleService.places
     compile project(path: ':reciclappadmin')

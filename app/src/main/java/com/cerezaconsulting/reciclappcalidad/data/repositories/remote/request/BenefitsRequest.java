@@ -6,6 +6,8 @@ import com.cerezaconsulting.reciclappcalidad.data.entities.UserEntity;
 import com.cerezaconsulting.reciclappcalidad.data.entities.trackholders.EntityTrackHolder;
 import com.cerezaconsulting.reciclappcalidad.data.repositories.remote.ApiConstants;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -18,8 +20,8 @@ import retrofit2.http.Path;
 public interface BenefitsRequest {
 
     @GET(ApiConstants.BENEFITS)
-    Call<EntityTrackHolder<BusinessEntity>> getBusinessBenefits(@Header("Authorization") String token,
-                                                                @Header("Accept") String json);
+    Call<List<BusinessEntity>> getBusinessBenefits(@Header("Authorization") String token,
+                                                   @Header("Accept") String json);
 
     @GET(ApiConstants.USER_BENEFITS)
     Call<UserEntity> getUserBenefits(@Header("Authorization") String token,

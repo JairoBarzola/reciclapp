@@ -3,8 +3,10 @@ package com.cerezaconsulting.reciclappcalidad.presentation.contracts;
 import com.cerezaconsulting.reciclappcalidad.core.BasePresenter;
 import com.cerezaconsulting.reciclappcalidad.core.BaseView;
 import com.cerezaconsulting.reciclappcalidad.data.entities.BenefitEntity;
+import com.cerezaconsulting.reciclappcalidad.data.entities.BusinessEntity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by miguel on 29/06/17.
@@ -12,7 +14,7 @@ import java.util.ArrayList;
 
 public interface MyBenefitsContract {
     interface View extends BaseView<Presenter>{
-        void loadBenefits(ArrayList<BenefitEntity> list);
+        void loadBenefits(List<BenefitEntity> list);
     }
     interface Presenter extends BasePresenter{
 

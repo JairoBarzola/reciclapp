@@ -66,7 +66,6 @@ public class MyDeliveriesFragment extends BaseFragment implements MyDeliveriesCo
         layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rvDeliveries.setLayoutManager(layoutManager);
-
         adapter = new MyDeliveriesAdapter(new ArrayList<DeliveryEntity>(),(CommunicatorEntity<DeliveryEntity>)presenter);
         rvDeliveries.setAdapter(adapter);
     }
