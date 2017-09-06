@@ -26,4 +26,5 @@ public class LoginActivity extends BaseActivity {
         }
         new LoginPresenter(fragment,getApplicationContext());
     }
+
 }

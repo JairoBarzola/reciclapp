@@ -9,6 +9,8 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import com.cerezaconsulting.reciclappadmin.R;
+
 
 /**
  * Created by miguel on 14/06/16.
@@ -23,6 +25,7 @@ public class BaseFragment extends Fragment {
             intent.putExtras(bundle);
         }
         startActivity(intent);
+        getActivity().overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
         if (destroy) context.finish();
     }
 
@@ -33,6 +36,7 @@ public class BaseFragment extends Fragment {
             intent.putExtras(bundle);
         }
         startActivity(intent);
+        getActivity().overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
         context.finish();
     }
 

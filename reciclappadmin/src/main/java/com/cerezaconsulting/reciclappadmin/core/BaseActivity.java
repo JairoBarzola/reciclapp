@@ -84,6 +84,7 @@ public class BaseActivity extends AppCompatActivity {
             intent.putExtras(bundle);
         }
         startActivity(intent);
+        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
         if (destroy) context.finish();
     }
 
@@ -94,6 +95,7 @@ public class BaseActivity extends AppCompatActivity {
             intent.putExtras(bundle);
         }
         startActivity(intent);
+        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
         context.finish();
     }
 
@@ -114,6 +116,7 @@ public class BaseActivity extends AppCompatActivity {
             intent.putExtras(bundle);
         }
         startActivity(intent);
+        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
         if (destroy) context.finish();
     }
 
@@ -128,6 +131,9 @@ public class BaseActivity extends AppCompatActivity {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+    }
 }

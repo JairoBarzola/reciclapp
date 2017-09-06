@@ -34,13 +34,13 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.drawer);
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
         assert ab != null;
-        ab.setTitle("");
+        ab.setTitle("Reciclapp Gestión");
         ab.setDisplayHomeAsUpEnabled(true);
         setupDrawerContent(navigationView);
 
