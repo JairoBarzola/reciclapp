@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cerezaconsulting.reciclappcalidad.R;
 import com.cerezaconsulting.reciclappcalidad.core.BaseActivity;
@@ -31,7 +32,7 @@ import butterknife.Unbinder;
  * Created by miguel on 30/05/17.
  */
 
-public class GetBenefitsFragment extends BaseFragment implements GetBenefitsContract.View{
+public class GetBenefitsFragment extends BaseFragment implements GetBenefitsContract.View {
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
@@ -76,11 +77,19 @@ public class GetBenefitsFragment extends BaseFragment implements GetBenefitsCont
 
     @Override
     public void loadBenefits(List<BusinessEntity> list) {
-        adapter= new RecyclerAdapterBenefits(getContext(),list);
+        this.adapter= new RecyclerAdapterBenefits(getContext(),transformarList(list));
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
 
+    }
+    private List<BusinessEntity> transformarList(List<BusinessEntity> list) {
+        List<BusinessEntity> newList = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            BusinessEntity model = new BusinessEntity(list.get(i).getRazon_social(),list.get(i).getBenefits());
+            newList.add(model);
+        }
+        return newList;
     }
 
     @Override
@@ -115,5 +124,4 @@ public class GetBenefitsFragment extends BaseFragment implements GetBenefitsCont
     public void setPresenter(GetBenefitsContract.Presenter presenter) {
 
     }
-
 }

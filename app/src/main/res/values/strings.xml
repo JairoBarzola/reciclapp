@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Reciclapp</string>
     <string name="perm_camera">Se necesitan permisos para la cámara</string>
-    
+
     //drawer
     <string name="make_a_delivery">Hacer una entrega</string>
     <string name="collection_points">Puntos de acopio</string>
@@ -15,7 +15,7 @@
     <string name="forgot_my_password">Olvidé mi contraseña</string>
     <string name="login">Iniciar Sesión</string>
     <string name="register">Registrar</string>
-    
+
     //register
     <string name="first_name">Nombre</string>
     <string name="last_name">Apellido</string>
@@ -74,5 +74,5 @@
 
     //google map keys
     <string name="google_map_key">AIzaSyB1D51Wa_7U2zCXH4VsfMZiXfhuP8LX7uM</string>
-    
+
 </resources>

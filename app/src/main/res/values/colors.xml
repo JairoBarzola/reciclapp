@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00B871</color>
-    <color name="colorPrimaryDark">#4CAF50</color>
-    <color name="colorAccent">#8BC34A</color>
+    <color name="colorPrimary">#287F22</color>
+    <color name="colorPrimaryDark">#2EAB26</color>
+    <color name="colorAccent">#46AF4A</color>
 
     <color name="colorHeaderView">#287F22</color>
     <color name="primaryText">#FF404040</color>
@@ -50,4 +50,8 @@
     <color name="primary_transparent">#14ff7300</color>
     <color name="accent_transparent">#78ff9700</color>
     <color name="white_transparent">#47b1b1b1</color>
+
+    <color name="green_transparent">#104caf50</color>
+    <color name="green_transparent_dark">#080c280d</color>
+    <color name="green_circle">#b44caf50</color>
 </resources>

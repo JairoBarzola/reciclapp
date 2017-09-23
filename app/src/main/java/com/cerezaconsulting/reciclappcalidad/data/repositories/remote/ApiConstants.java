@@ -12,6 +12,7 @@ public class ApiConstants {
     public static final String BENEFITS = "beneficios";
     public static final String USER_BENEFITS = "usuarios/{id}/beneficios";
     public static final String USER_BENEFIT_DESCRIPTION = "usuarios/{id}/beneficios/{bf_id}";
+    public static final String USER_ASSING_BENEFIT = "usuarios/{id}/beneficios/{bf_id}";
     public static final String USER_DELIVERIES = "usuarios/{id}/entregas";
     public static final String USER_DELIVERY_DESCRIPTION = "usuarios/{id}/entregas/{dv_id}";
     public static final String DELIVERY_POINTS = "puntos-de-acopio/";

@@ -6,7 +6,7 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.view.animation.Animation.*;
+
 
 
 import com.cerezaconsulting.reciclappcalidad.R;
@@ -16,8 +16,6 @@ import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static android.R.style.Animation;
 
 /**
  * Created by Jair Barzola on 04-Sep-17.
@@ -35,7 +33,7 @@ public class BusinessHolder extends GroupViewHolder {
     public void bind(Context context, ExpandableGroup business) {
         if(business instanceof BusinessEntity){
             tvBusinessName.setText(String.valueOf(((BusinessEntity) business).getRazon_social()));
-            tvBusinessBenefits.setText(String.valueOf(((BusinessEntity) business).getBenefits().size())+" beneficios");
+            tvBusinessBenefits.setText(String.valueOf(((BusinessEntity) business).getItemCount())+" beneficios");
         }
     }
 
@@ -47,7 +45,7 @@ public class BusinessHolder extends GroupViewHolder {
 
     private void animateExpand() {
         RotateAnimation rotate =
-                new RotateAnimation(360, 180, android.view.animation.Animation.RELATIVE_TO_SELF, 0.5f, android.view.animation.Animation.RELATIVE_TO_SELF, 0.5f);
+                new RotateAnimation(360, 180, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         rotate.setDuration(300);
         rotate.setFillAfter(true);
         arrowDown.setAnimation(rotate);
@@ -61,7 +59,7 @@ public class BusinessHolder extends GroupViewHolder {
 
     private void animateCollapse() {
         RotateAnimation rotate =
-                new RotateAnimation(180, 360, android.view.animation.Animation.RELATIVE_TO_SELF , 0.5f, android.view.animation.Animation.RELATIVE_TO_SELF, 0.5f);
+                new RotateAnimation(180, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         rotate.setDuration(300);
         rotate.setFillAfter(true);
         arrowDown.setAnimation(rotate);

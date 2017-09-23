@@ -27,7 +27,7 @@ public class BusinessEntity extends ExpandableGroup<BenefitEntity>{
 
     public BusinessEntity(String title, List<BenefitEntity> items) {
         super(title, items);
-        //this.razonSocial=title;
+        this.razon_social=title;
         //this.benefits=items;
     }
 

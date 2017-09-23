@@ -12,9 +12,13 @@ import com.cerezaconsulting.reciclappcalidad.core.BaseFragment;
 import com.cerezaconsulting.reciclappcalidad.data.entities.DeliveryPointEntity;
 import com.cerezaconsulting.reciclappcalidad.presentation.contracts.DeliveryPointContract;
 import com.cerezaconsulting.reciclappcalidad.presentation.utils.ProgressDialogCustom;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
@@ -32,6 +36,7 @@ import butterknife.Unbinder;
  */
 
 public class DeliveryPointsFragment extends BaseFragment implements OnMapReadyCallback,DeliveryPointContract.View {
+
 
     @BindView(R.id.mv_delivery_point)
     MapView mvDeliveryPoint;

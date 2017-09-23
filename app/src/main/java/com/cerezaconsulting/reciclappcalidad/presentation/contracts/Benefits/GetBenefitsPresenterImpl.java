@@ -10,6 +10,7 @@ import com.cerezaconsulting.reciclappcalidad.data.repositories.local.SessionMana
 import com.cerezaconsulting.reciclappcalidad.data.repositories.remote.ApiConstants;
 import com.cerezaconsulting.reciclappcalidad.data.repositories.remote.ServiceFactory;
 import com.cerezaconsulting.reciclappcalidad.data.repositories.remote.request.BenefitsRequest;
+import com.cerezaconsulting.reciclappcalidad.data.repositories.remote.request.DeliveriesRequest;
 import com.cerezaconsulting.reciclappcalidad.presentation.contracts.GetBenefitsContract;
 import com.cerezaconsulting.reciclappcalidad.presentation.contracts.MyBenefitsContract;
 
@@ -41,13 +42,7 @@ public class GetBenefitsPresenterImpl implements GetBenefitsPresenter {
     public void loadData() {
         mView.setLoadingIndicator(true);
         String token = sessionManager.getUserToken();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://198.199.84.9/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        BenefitsRequest request = retrofit.create(BenefitsRequest.class);
+        BenefitsRequest request = ServiceFactory.createService(BenefitsRequest.class);
         Call<List<BusinessEntity>> call = request.getBusinessBenefits("Bearer "+token, ApiConstants.APP_JSON);
         Log.i("Response","Ok");
         call.enqueue(new Callback<List<BusinessEntity>>() {

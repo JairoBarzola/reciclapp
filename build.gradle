@@ -44,7 +44,7 @@ ext {
     eventBusVersion='3.0.0'
     calligraphyVersion = '2.2.0'
     saripaarVersion = '2.0.3'
-    googleServiceVersion = '10.2.6'
+    googleServiceVersion = '11.0.4'
     facebookVersion = '4.19.0'
     firebaseVersion = '9.0.2'
     materialPickerVersion = "2.3.0"
@@ -84,7 +84,7 @@ ext {
             location :  "com.google.android.gms:play-services-location:${googleServiceVersion}",
             auth :  "com.google.android.gms:play-services-auth:${googleServiceVersion}",
             plus :  "com.google.android.gms:play-services-plus:${googleServiceVersion}",
-            allServices :  "'com.google.android.gms:play-services':${googleServiceVersion}"
+            allServices :  "com.google.android.gms:play-services:${googleServiceVersion}"
     ]
 
     firebase = [
