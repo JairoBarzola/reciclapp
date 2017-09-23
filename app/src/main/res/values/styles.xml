@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="Splash" parent="AppTheme">
-        <item name="android:background">@drawable/splash_user</item>
+        <item name="android:layout">@layout/activity_loader</item>
     </style>
 
 </resources>
