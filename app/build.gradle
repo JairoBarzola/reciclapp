@@ -68,7 +68,9 @@ dependencies {
     compile helpLibraries.saaripar
     compile helpLibraries.dateTimePicker
     compile 'com.thoughtbot:expandablerecyclerview:1.0'
-    compile googleService.allServices
+    compile googleService.maps
+    compile googleService.places
+    compile googleService.location
     compile project(path: ':reciclappadmin')
 
 }

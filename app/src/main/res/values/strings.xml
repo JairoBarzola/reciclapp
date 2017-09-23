@@ -73,6 +73,7 @@
 
 
     //google map keys
-    <string name="google_map_key">AIzaSyB1D51Wa_7U2zCXH4VsfMZiXfhuP8LX7uM</string>
+    <string name="google_map_key">AIzaSyDZ2Dv_8b4D9IhZ8JizxInJitxH0rmSEc0</string>
+    <!--<string name="google_map_key">AIzaSyB1D51Wa_7U2zCXH4VsfMZiXfhuP8LX7uM</string>-->
 
 </resources>
