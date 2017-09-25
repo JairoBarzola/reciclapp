@@ -20,17 +20,8 @@ public class LoadActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loader);
         sessionManager = new SessionManager(getApplicationContext());
-        Thread t = new Thread(){
-            public void run(){
-                try {
-                    sleep(2000);
-                    initializeView();
-                    finish();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
+        initializeView();
+
     }
 
     private void initializeView(){
