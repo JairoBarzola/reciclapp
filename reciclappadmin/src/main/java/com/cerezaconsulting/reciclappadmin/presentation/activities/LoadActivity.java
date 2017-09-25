@@ -18,10 +18,20 @@ public class LoadActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_loader);
+        setContentView(R.layout.splash);
         sessionManager = new SessionManager(getApplicationContext());
-        initializeView();
-
+        Thread t = new Thread(){
+            public void run(){
+                try {
+                    sleep(2000);
+                    initializeView();
+                    finish();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        t.start();
     }
 
     private void initializeView(){
