@@ -11,6 +11,7 @@ import java.util.ArrayList;
  */
 
 public interface DeliveryPointContract {
+    //interfaces para el modelo Vista-Presentador
     interface View extends BaseView<Presenter>{
         void getDeliveryPoints(ArrayList<DeliveryPointEntity> list);
     }

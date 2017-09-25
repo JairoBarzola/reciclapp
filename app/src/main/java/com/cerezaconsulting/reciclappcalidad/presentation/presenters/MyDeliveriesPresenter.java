@@ -37,6 +37,8 @@ public class MyDeliveriesPresenter implements MyDeliveriesContract.Presenter,Com
 
     @Override
     public void start() {
+        //Metodo para obtener la lista de entregas
+        //DeliveriesRequest se encuentra data/remote/request
         mView.setLoadingIndicator(true);
         String token = sessionManager.getUserToken();
         UserEntity userEntity = sessionManager.getUserEntity();

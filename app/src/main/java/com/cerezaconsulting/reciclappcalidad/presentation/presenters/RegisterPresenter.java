@@ -32,6 +32,8 @@ public class RegisterPresenter implements RegisterContract.Presenter {
 
     @Override
     public void registerUser(UserEntity userEntity) {
+        //Metodo para registrar un usuario
+        //UserRequest se encuentra data/remote/request
         mView.setLoadingIndicator(true);
         UserRequest userRequest = ServiceFactory.createService(UserRequest.class);
         Call<Void> call = userRequest.registerUser(ApiConstants.APP_JSON,userEntity);

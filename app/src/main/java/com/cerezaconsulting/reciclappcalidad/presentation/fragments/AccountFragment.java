@@ -77,6 +77,7 @@ public class AccountFragment extends BaseFragment implements AccountContract.Vie
 
     @Override
     public void loadUser(UserEntity userEntity) {
+        //Mostrando las
         tvFullName.setText(userEntity.getFullName());
         tvEmail.setText(userEntity.getEmail());
         tvDocumentNumber.setText(userEntity.getDni());

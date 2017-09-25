@@ -11,6 +11,7 @@ import java.util.ArrayList;
  */
 
 public interface MyDeliveriesContract {
+    //interfaces para el modelo Vista-Presentador
     interface View extends BaseView<Presenter> {
         void getMyDeliveries(ArrayList<DeliveryEntity> list);
         void deliveryDetail(DeliveryEntity deliveryEntity);

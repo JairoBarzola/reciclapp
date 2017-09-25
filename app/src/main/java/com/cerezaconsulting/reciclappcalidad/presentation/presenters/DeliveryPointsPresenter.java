@@ -35,6 +35,8 @@ public class DeliveryPointsPresenter implements DeliveryPointContract.Presenter 
 
     @Override
     public void start() {
+        //Metodo para obtener los puntos de acopio
+        //DeliveryPointsRequest se encuentra data/remote/request
         mView.setLoadingIndicator(true);
         String token = sessionManager.getUserToken();
         DeliveryPointsRequest request = ServiceFactory.createService(DeliveryPointsRequest.class);

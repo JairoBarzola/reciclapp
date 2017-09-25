@@ -9,6 +9,7 @@ import com.cerezaconsulting.reciclappcalidad.data.entities.DeliveryEntity;
  */
 
 public interface DeliveryDetailContract {
+    //interfaces para el modelo Vista-Presentador
     interface View extends BaseView<Presenter> {
         void getDeliveryDetail(DeliveryEntity deliveryEntity);
     }

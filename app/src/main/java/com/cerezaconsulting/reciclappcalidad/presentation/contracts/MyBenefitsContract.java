@@ -14,6 +14,7 @@ import java.util.List;
  */
 
 public interface MyBenefitsContract {
+    //interfaces para el modelo Vista-Presentador
     interface View extends BaseView<Presenter>{
         void loadBenefits(List<MyBenefitsResponse> list);
     }

@@ -28,22 +28,16 @@ public class LoadActivity extends BaseActivity {
             public void run(){
                 try {
                     sleep(2000);
+                    initializeView();
+                    finish();
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                } finally {
-                    initializeView();
                 }
             }
         };
         t.start();
     }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        finish();
-    }
-
     private void initializeView(){
         next(this, null, sessionManager.isLogin() ? MainActivity.class : LoginActivity.class, true);
     }

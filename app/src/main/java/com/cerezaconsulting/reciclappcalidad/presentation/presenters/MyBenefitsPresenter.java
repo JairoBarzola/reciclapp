@@ -42,6 +42,8 @@ public class MyBenefitsPresenter implements MyBenefitsContract.Presenter {
 
     @Override
     public void start() {
+        //Metodo para obtener los beneficios de un colaborador
+        //BenefitsRequest se encuentra data/remote/request
         mView.setLoadingIndicator(true);
         String token = sessionManager.getUserToken();
         UserEntity userEntity = sessionManager.getUserEntity();

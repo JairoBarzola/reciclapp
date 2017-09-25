@@ -50,10 +50,12 @@ public class SessionManager {
         editor.commit();
     }
     public UserEntity getUserEntity(){
+        //obtener datos del usuario guardados en  memoria interna
         String userData = preferences.getString(USER_JSON, null);
         return new Gson().fromJson(userData, UserEntity.class);
     }
     public String getUserToken() {
+        //obtener el token
         if (isLogin()) {
             return preferences.getString(USER_TOKEN, "");
         } else {
@@ -61,6 +63,7 @@ public class SessionManager {
         }
     }
     public void closeSession() {
+        //reset session
         editor.putBoolean(IS_LOGIN, false);
         editor.putString(USER_TOKEN, null);
         editor.putString(USER_JSON, null);

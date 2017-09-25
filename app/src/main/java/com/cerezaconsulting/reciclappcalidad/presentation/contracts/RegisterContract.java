@@ -9,6 +9,7 @@ import com.cerezaconsulting.reciclappcalidad.data.entities.UserEntity;
  */
 
 public interface RegisterContract {
+    //interfaces para el modelo Vista-Presentador
     interface View extends BaseView<Presenter>{
         void registerSuccessfully();
     }

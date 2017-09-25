@@ -34,6 +34,8 @@ public class LoginPresenter implements LoginContract.Presenter{
 
     @Override
     public void login(String email, String password) {
+        //Metodo para obtener el token
+        //UserRequest se encuentra data/remote/request
         mView.setLoadingIndicator(true);
         UserRequest userRequest = ServiceFactory.createService(UserRequest.class);
         Call<AccessTokenEntity> call = userRequest.login(email,password, ApiConstants.GRANT_TYPE,ApiConstants.CLIENT_ID,ApiConstants.CLIENT_SECRET);
@@ -64,6 +66,8 @@ public class LoginPresenter implements LoginContract.Presenter{
     }
 
     private void getAccount(final AccessTokenEntity accessTokenEntity){
+        //Metodo para obtener los datos de empleado
+        //UserRequest se encuentra data/remote/request
         UserRequest userRequest = ServiceFactory.createService(UserRequest.class);
         Call<UserEntity> call = userRequest.getUser("Bearer "+accessTokenEntity.getAccess_token());
         call.enqueue(new Callback<UserEntity>() {

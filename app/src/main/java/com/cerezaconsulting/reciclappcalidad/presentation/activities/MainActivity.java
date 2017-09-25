@@ -81,18 +81,23 @@ public class MainActivity extends BaseActivity {
         // position
 
         switch (menuItem.getItemId()) {
+            //Activity for ReceviedBenefitQR
             case R.id.action_recycle:
                 next(this,null,ReceivedBenefitQrActivity.class,false);
                 break;
+            //Activity for DeliveryPoints
             case R.id.action_my_orders:
                 next(this,null,DeliveryPointsActivity.class,false);
                 break;
+            //Activity for MyDeliveries
             case R.id.action_delivery:
                 next(this,null,MyDeliveriesActivity.class,false);
                 break;
+            //Activity for Benefits
             case R.id.action_benefits:
                 next(this,null,BenefitsActivity.class,false);
                 break;
+            //Activity for Profile
             case R.id.action_account:
                 next(this, null, AccountActivity.class, false);
                 break;

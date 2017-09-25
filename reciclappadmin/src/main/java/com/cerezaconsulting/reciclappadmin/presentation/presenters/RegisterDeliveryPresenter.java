@@ -51,6 +51,8 @@ public class RegisterDeliveryPresenter implements RegisterDeliveryContract.Prese
 
     @Override
     public void registerDelivery(String userId, String paper, String glass, String plastic) {
+        //Metodo para registrar las entregas del colaborador
+        //DeliveryRequest se encuentra data/remote/request
         mView.setLoadingIndicator(true);
         String token = sessionManager.getUserToken();
         UserEntity userEntity = sessionManager.getUserEntity();

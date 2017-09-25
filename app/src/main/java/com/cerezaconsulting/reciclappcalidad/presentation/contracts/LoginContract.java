@@ -8,6 +8,7 @@ import com.cerezaconsulting.reciclappcalidad.core.BaseView;
  */
 
 public interface LoginContract {
+    //interfaces para el modelo Vista-Presentador
     interface View extends BaseView<Presenter>{
         void loginSuccessfully();
     }

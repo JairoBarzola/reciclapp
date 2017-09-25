@@ -37,6 +37,8 @@ public class DeliveryDetailPresenter implements DeliveryDetailContract.Presenter
     @Override
     public void loadDeliveryDetail(DeliveryEntity deliveryEntity) {
         mView.setLoadingIndicator(true);
+        //Metodo para obtener los detalles de la entrega
+        //DeliveriesRequest se encuentra data/remote/request
         String token = sessionManager.getUserToken();
         UserEntity userEntity = sessionManager.getUserEntity();
         DeliveriesRequest deliveriesRequest = ServiceFactory.createService(DeliveriesRequest.class);
